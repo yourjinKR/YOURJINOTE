@@ -32,7 +32,6 @@
 
 # JRE (Java Runtime Enviroment)
 Java로 프로그램을 직접 개발하려면 JDK가 필요하고, 컴파일된 Java를 실행시키기 위해서는 JRE가 필요
-
 # JVM (Java Virtual Machine)
 - 자바 애플리케이션을 실행하는 가상머신
 - 운영채제와 상관 없이 하나의 코드로 실행

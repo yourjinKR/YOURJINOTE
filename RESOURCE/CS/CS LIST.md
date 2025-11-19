@@ -1,3 +1,5 @@
+# yourjin CS List
+공부한 내용 체크리스트
 
 ## 카테고리
 [출처](https://www.youtube.com/watch?v=Jldtn3XRGic&t=278s)
@@ -20,3 +22,5 @@
 - [x] JVM
 - [x] JRE
 - [x] JDK
+- [ ] Spring의 DispatcherServlet
+- [ ] 정적 바인딩과 동적 바인딩
