@@ -19,6 +19,7 @@ docker-compose logs -f wordcapsule-app
 docker-compose logs --tail 50 wordcapsule-app
 ```
 
+### 환경 종료 및 정리
 ```bash
 # 실행 중인 모든 컨테이너와 네트워크를 종료 (DB 데이터(Volume)는 유지)
 docker-compose down
@@ -26,6 +27,25 @@ docker-compose down
 # 미사용 Docker 이미지 모두 삭제 (디스크 공간 확보)
 docker image prune -a
 
-# 모든 컨테이너, 네트워크, 볼륨, 캐시 등 불필요한 Docker 리소스 일괄 삭제 (개발 환경 정리)
+# 모든 컨테이너, 네트워크, 볼륨*, 캐시 등 불필요한 Docker 리소스 일괄 삭제 (개발 환경 정리)
 docker system prune -a -f
+```
+
+### 정지 및 재시작
+```bash
+docker-compose stop
+docker-compose start
+```
+
+### 초기화 후 재시작
+DB 스키마 정보가 꼬였을시 실행
+```bash
+# 1. 컨테이너를 내리면서, DB 데이터가 저장된 볼륨(-v)까지 삭제합니다.
+docker-compose down -v
+
+# 2. (선택 사항) 혹시 모르니 빌드 캐시 없이 다시 이미지를 만듭니다.
+docker-compose build --no-cache
+
+# 3. 다시 실행합니다.
+docker-compose up -d
 ```
