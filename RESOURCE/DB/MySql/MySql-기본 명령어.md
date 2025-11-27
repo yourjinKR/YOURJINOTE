@@ -1,3 +1,9 @@
+## 컬럼 정보 확인
+```sql
+-- 컬럼 정보 확인  
+show columns from users;
+```
+
 ## DB 삭제
 ```sql
 -- 초기화  
