@@ -56,3 +56,18 @@ public enum ErrorMessage {
 }
 
 ```
+
+
+`
+```java
+  private Object args = null;
+  
+  
+public static RestApiException of(ErrorCode errorCode) {  
+    return new RestApiException(errorCode);  
+}  
+  
+public static RestApiException argsFrom(ErrorCode errorCode, Object ...args) {  
+    return new RestApiException(errorCode, args);  
+}
+```
