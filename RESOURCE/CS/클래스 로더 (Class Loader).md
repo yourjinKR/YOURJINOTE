@@ -14,6 +14,10 @@
 클래스가 필요로 하는 메모리를 할당하고, 클래스에서 정의된 필드, 메소드, 인터페이스를 나타내는 데이터 구조를 준비한다. 
 ### 분석
 심볼릭 메모리 레퍼런스를 메소드 영역에 있는 실제 레퍼런스로 교체한다.
+
+> **심볼릭 레퍼런스란?**
+> 심볼릭 레퍼런스는 자바와 같은 고급 프로그래밍 언어에서 사용되는 개념이다. **프로그램 내에서 클래스, 메서드, 필드 등을 직접적으로 식별하는 데 사용되는 이름이나 식별자**를 말한다. 심볼릭 레퍼런스는 주로 컴파일된 바이트코드 내에 존재하며, 프로그램 실행 시점에 실제 메모리 주소(물리적 주소)로 변환된다. 이를 통해 프로그램이 메모리 내에서 객체나 클래스에 접근할 수 있게 된다.
+
 ## 초기화
 클래스 변수들을 적절한 값으로 초기화 한다. 즉, static 필드들이 설정된 값으로 초기화한다.
 # 클래스 로더의 종류
@@ -99,4 +103,6 @@ public class RuntimeLoading {
 
 # 출처
 클래스의 로딩, 초기화 시점에 대한 이야기와 예상 면접 질문 및 답변은 링크를 참고하자 
+[f-lab](https://f-lab.kr/insight/understanding-jvm-class-loader-20250529?gad_source=1&gad_campaignid=22368870602&gbraid=0AAAAACGgUFdfKzkzzvnlSSkanha9oUlBE&gclid=CjwKCAiA86_JBhAIEiwA4i9JuynLqNNXbnPWq0WQA474xiQxdWCQzbx4TDzy44KdlxbtO742gca9RhoCyYgQAvD_BwE)
+
 [출처](https://steady-coding.tistory.com/593#google_vignette)
