@@ -1,7 +1,4 @@
-[얄팍한 코딩 사전 유튜브](https://www.youtube.com/watch?v=OxvtGYvVkRU)
-[블로그](https://inpa.tistory.com/entry/JAVA-%E2%98%95-JDK-JRE-JVM-%EA%B0%9C%EB%85%90-%EA%B5%AC%EC%84%B1-%EC%9B%90%EB%A6%AC-%F0%9F%92%AF-%EC%99%84%EB%B2%BD-%EC%B4%9D%EC%A0%95%EB%A6%AC)
-[블로그2](https://sung-98.tistory.com/133)
-## 개요
+# 개요
 **java home** : 자바가 설치된 디렉토리
 
 ![[jdk_jre_jvm_image.png]]
@@ -33,7 +30,7 @@
 # JRE (Java Runtime Enviroment)
 Java로 프로그램을 직접 개발하려면 JDK가 필요하고, 컴파일된 Java를 실행시키기 위해서는 JRE가 필요
 # JVM (Java Virtual Machine)
-- 자바 애플리케이션을 실행하는 가상머신
+- 자바 애플리케이션을 실행하는 [[가상 머신 (Virtual Machine)]]
 - 운영채제와 상관 없이 하나의 코드로 실행
 - 대표적인 단점으로는 속도가 느림
 	- [[JIT 컴파일러]]로 개선은 되었음
@@ -53,12 +50,15 @@ Java로 프로그램을 직접 개발하려면 JDK가 필요하고, 컴파일된
 5. **가비지 컬렉터**가 메모리 관리를 자동으로 수행
 
 ## 구조
+![[Pasted image 20251202202142.png]]
+
 ### Class Loader
-• JVM의 **Class Loader**는 자바 바이트코드를 JVM 내부로 로드하는 역할을 수행하고 여러 클래스를 메모리에 적재하고, 필요한 클래스를 동적으로 로드함
+• JVM의 **Class Loader**는 자바 바이트코드를 JVM 내부로 로드하는 역할을 수행하고 **여러 클래스를 메모리에 적재**하고, 필요한 **클래스를 동적으로 로드**함
 • 클래스 로딩 과정은 크게 세 단계로 분류
 	• **로딩(Loading)**: 클래스 파일을 찾아서 메모리에 로드
 	• **연결(Linking)**: 클래스 파일 간의 의존성을 해소하고 심볼릭 레퍼런스를 메모리 주소로 변경
 	• **초기화(Initialization)**: 정적 필드 및 초기화 블록을 실행
+[[클래스 로더 (Class Loader)|자세히]]
 ### 메모리 구조 (Runtime Data Areas)
 • JVM이 프로그램을 실행할 때, 메모리는 **여러 영역**으로 나뉘어 관리
 	• **메소드 영역(Method Area)**: 모든 클래스의 메타데이터(클래스 구조, 메서드 정보 등)를 저장
@@ -74,3 +74,8 @@ Java로 프로그램을 직접 개발하려면 JDK가 필요하고, 컴파일된
 ### Java Native Interface
 • 자바는 순수 자바 코드 외에도 C나 C++과 같은 네이티브 코드를 호출할 수 있도록 
 **JNI**를 제공합니다. 이를 통해 성능이 중요한 부분에서는 네이티브 코드를 사용할 수 있습니다.
+
+# 출처
+[얄팍한 코딩 사전 유튜브](https://www.youtube.com/watch?v=OxvtGYvVkRU)
+[블로그](https://inpa.tistory.com/entry/JAVA-%E2%98%95-JDK-JRE-JVM-%EA%B0%9C%EB%85%90-%EA%B5%AC%EC%84%B1-%EC%9B%90%EB%A6%AC-%F0%9F%92%AF-%EC%99%84%EB%B2%BD-%EC%B4%9D%EC%A0%95%EB%A6%AC)
+[블로그2](https://sung-98.tistory.com/133)
