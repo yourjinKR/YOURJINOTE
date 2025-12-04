@@ -1,5 +1,5 @@
 # JVM (Java Virtual Machine)
-- 자바 애플리케이션을 실행하는 [가상-머신-Virtual-Machine](RESOURCE/CS/가상-머신-Virtual-Machine.md)
+- 자바 애플리케이션을 실행하는 [가상-머신-Virtual-Machine](%EA%B0%80%EC%83%81-%EB%A8%B8%EC%8B%A0-Virtual-Machine.md)
 - 운영채제와 상관 없이 하나의 코드로 실행
 - 대표적인 단점으로는 속도가 느림
 	- [JIT 컴파일러](Java-JIT-컴파일러.md)로 개선은 되었음
