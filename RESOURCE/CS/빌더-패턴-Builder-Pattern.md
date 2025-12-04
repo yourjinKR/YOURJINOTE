@@ -101,7 +101,7 @@ public User join(String email, String password, String name) {
 )
 ```
 
-![[Pasted image 20251130020501.png]]
+![Pasted image 20251130020501](Pasted%20image%2020251130020501.png)
 
 ### @Builder.Default
 ```java

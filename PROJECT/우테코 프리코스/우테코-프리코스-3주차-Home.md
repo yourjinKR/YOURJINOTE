@@ -1,6 +1,6 @@
-[[3주차-workspace]]
-[[3주차-readme]]
-[[3주차-review]]
+[3주차-workspace](3주차-workspace.md)
+[3주차-readme](3주차-readme.md)
+[3주차-review](3주차-review.md)
 
 # 과제 설명
 

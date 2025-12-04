@@ -11,7 +11,7 @@
 - 동적
 - 프로퍼티의 실제 값
 
-![[Pasted image 20251118170601.png]]
+![Pasted image 20251118170601](Pasted%20image%2020251118170601.png)
 
 ## 자바의 필드
 ### 특징
@@ -61,7 +61,7 @@ class User(
 
 > validator : 아니,,, 뭘 검증하라구요 주인님?
 
-![[Pasted image 20251118164005.png]]
+![Pasted image 20251118164005](Pasted%20image%2020251118164005.png)
 이는 해당 프로퍼티에 어떤 영역에서 검증을 거칠 것인가에 대해 명확하게 명시하라는 뜻이다.
 코틀린에서 프로퍼티를 선언시 해당 프로퍼티가 수행하는 역할이 많기 때문이다
 - 필드
@@ -70,7 +70,7 @@ class User(
 - set
 
 미입력시 `get()`에 검증이 수행된다. 그렇기에 어떤 영역에 검증을 할 것인지 명시하자
-![[Pasted image 20251118170207.png]]
+![Pasted image 20251118170207](Pasted%20image%2020251118170207.png)
 
 ```kotlin
 data class User(

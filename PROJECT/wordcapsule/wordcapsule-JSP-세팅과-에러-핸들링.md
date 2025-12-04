@@ -137,10 +137,10 @@ View를 위한 별개의 컨트롤러를 만들어 책임을 나누어 관리하
 
 ## 존재하지 않는 경로에 대한 노출
 위와 같이 존재하지 않는 url로 요청할 경우 다음과 같이 검은 화면이 나오기 시작했다.
-![[스크린샷 2025-11-15 205854.png]]
+![스크린샷 2025-11-15 205854](스크린샷%202025-11-15%20205854.png)
 
 **원인**
-Spring MVC의 [[Spring-DispatcherServlet|DispatcherServlet]] 단계에서 바로 잡히기 때문에, JSP 뷰가 로드되기 전에 
+Spring MVC의 [DispatcherServlet](Spring-DispatcherServlet.md) 단계에서 바로 잡히기 때문에, JSP 뷰가 로드되기 전에 
 서버의 **기본 에러 핸들러**가 작동하여 JSON을 반환하는 것이다.
 
 > 디스패처 서블릿은 HTTP 프로토콜로 들어오는 모든 요청을 가장 먼저 받아 
@@ -233,7 +233,7 @@ fun handleGenericException(
 
 > 여러 `ControllerAdvice`가 있을 때 `@Order`어노테이션으로 순서를 지정하지 않는다면 Spring은 `ControllerAdvice`를 임의의 순서로 호출합니다. 즉, 사용자가 예상하지 못한 예외 처리가 발생할 수 있습니다.
 
-![[Pasted image 20251120134749.png]]
+![Pasted image 20251120134749](Pasted%20image%2020251120134749.png)
 해당 핸들러를 삭제하니 최종적으로 다음과 같은 커스텀 에러 화면을 제공하는 것을 확인했다.
 ## Model과 DTO
 ```kotlin

@@ -19,4 +19,4 @@ int add(int a, int b) {
 
 ### 고차 함수
 다른 함수를 매개변수로 받거나 반환값으로 내놓는 함수
-[[Kotlin-High-order-Function]]
+[Kotlin-High-order-Function](Kotlin-High-order-Function.md)

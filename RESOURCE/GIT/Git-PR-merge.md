@@ -11,7 +11,7 @@ Squash는 사전적 의미로 으깨다, 짓누르다 라는 뜻을 가지고 �
 사실 Squash는 Rebase merge의 Option이다. Squash 옵션을 적용한 Rebase merge를 Squash merge라고 부르는 모양이다.
 
 # 깃허브 merge 허용
-![[Pasted image 20251126174618.png]]
+![Pasted image 20251126174618](Pasted%20image%2020251126174618.png)
 레포지토리 -> setting -> general -> 하단에 PR에서 설정
 
 # 출처

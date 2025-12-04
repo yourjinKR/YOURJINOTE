@@ -42,7 +42,7 @@ public abstract class BaseEntity {
 
 ## 추상 클래스로 사용하는 이유
 공통기능에 대한 확장이기 때문에
-[[Java-추상-클래스와-인터페이스-비교]]
+[Java-추상-클래스와-인터페이스-비교](Java-추상-클래스와-인터페이스-비교.md)
 ## @CreatedDate
 PrePersist와 비슷한 기능으로, Entity가 생성되어 저장될 때 시간이 자동으로 저장이 된다.
 ## @LastModifiedDate

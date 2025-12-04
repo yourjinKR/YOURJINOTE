@@ -60,4 +60,4 @@ public interface Repairable {
 
 
 # 기타
-[[Interface에-대한-이슈-정리]]
+[Interface에 대한 이슈 정리](Interface에-대한-이슈-정리.md)

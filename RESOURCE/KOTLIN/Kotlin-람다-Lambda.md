@@ -5,7 +5,7 @@
 기본적으로 코틀린의 함수는 일급 객체이다.
 간단히 일급 객체라는 것은 함수를 변수나 자료구조로 담아낼 수 있고, 
 파라미터로 다른 함수로 전달하거나 함수를 리턴 가능하는 것을 의미한다.
-[[Kotlin-High-order-Function|view more...]]
+[view more...](Kotlin-High-order-Function.md)
 
 # 람다 사용 이유
 ## 간결함
