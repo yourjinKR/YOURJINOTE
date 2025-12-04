@@ -1,4 +1,5 @@
-# API란?
+# API (Application Programming Interface)
+
 ## 간단 요약
 두 소프트웨어 구성 요소가 서로 통신할 수 있게 하는 메커니즘
 ## 각 사이트에서 설명하는 개념
