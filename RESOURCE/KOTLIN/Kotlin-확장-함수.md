@@ -41,7 +41,7 @@ fun String.getLastChar(): Char {
 }  
 ```
 ### 객체 매핑
-[[[Kotlin] 객체 매핑]]
+[[Kotlin-객체-매핑]]
 
 # 확장 프로퍼티 (Extension Property)
 ## 활용 예시

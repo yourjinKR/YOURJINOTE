@@ -1,6 +1,6 @@
 # Runtime Data Area란?
-- [[RESOURCE/JAVA/JDK & JRE & JVM.md|JVM]]이 읽어 들인 각종 타입 정보, 상수, 정적 변수 정보가 저장되는 영역
-- [[[Java] JIT 컴파일러|[Java] JIT 컴파일러]]가 번역한 **기계어 코드를 캐싱**하기 위한 메모리 공간으로 활용
+- [[JVM|JVM]]이 읽어 들인 각종 타입 정보, 상수, 정적 변수 정보가 저장되는 영역
+- [[Java-JIT-컴파일러|Java-JIT-컴파일러]]가 번역한 **기계어 코드를 캐싱**하기 위한 메모리 공간으로 활용
 - Java 8부터는 PermGen이 아니라 Metaspace에 속한다.
 
 # 영역
@@ -34,7 +34,7 @@
 ![[Pasted image 20251203200132.png]]
 
 # 힙 (Heap)
-- [[[Java] 가비지 컬렉션 (Garbage Collection)|가비지 컬렉터]]가 관리하는 메모리 영역으로 Java에서 사용되는 **객체**(인스턴스)가 저장되는 공간
+- [[Java-가비지 컬렉션-Garbage-Collection|가비지 컬렉터]]가 관리하는 메모리 영역으로 Java에서 사용되는 **객체**(인스턴스)가 저장되는 공간
 - 설정에 따라 크기를 변경하거나 고정 가능
 	- 부족 시 `OutOfMemoryError` 오류 발생
 - 세대별 컬렉션 이론(Generational collection theory)을 기반으로 설계 및 운영
@@ -71,7 +71,7 @@ Old 영역에 대한 가비지 컬렉션을 Major GC 또는 Full GC라고 부른
 - Young 영역에서 살아남은 객체가 Old 영역에 복사
 - Old 영역에 할당된 메모리가 허용치를 넘게 되면, Old 영역에 있는 모든 인스턴스들을 검사
 - 참조되지 않는 인스턴스를 한꺼번에 삭제
-- Major GC가 발생하면 [[RESOURCE/JAVA/[Java] STW (Stop The World).md|STW]] 발생
+- Major GC가 발생하면 [[STW-Stop-The-World|STW]] 발생
 
 ### Permanent Generation
 ClassLoader에 의해 동적으로 로딩된 클래스의 메타데이터가 저장되는 영역

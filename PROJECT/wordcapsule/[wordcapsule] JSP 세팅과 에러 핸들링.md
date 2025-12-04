@@ -140,7 +140,7 @@ View를 위한 별개의 컨트롤러를 만들어 책임을 나누어 관리하
 ![[스크린샷 2025-11-15 205854.png]]
 
 **원인**
-Spring MVC의 [[[Spring] DispatcherServlet|DispatcherServlet]] 단계에서 바로 잡히기 때문에, JSP 뷰가 로드되기 전에 
+Spring MVC의 [[Spring-DispatcherServlet|DispatcherServlet]] 단계에서 바로 잡히기 때문에, JSP 뷰가 로드되기 전에 
 서버의 **기본 에러 핸들러**가 작동하여 JSON을 반환하는 것이다.
 
 > 디스패처 서블릿은 HTTP 프로토콜로 들어오는 모든 요청을 가장 먼저 받아 

@@ -7,7 +7,7 @@
 
 ## JVM을 통한 플랫폼 독립성
 자바 프로그램은 OS나 CPU에 종속된 기계어가 아니라 **중간 언어(바이트코드, .class)** 로 컴파일된다.  
-각 플랫폼에는 해당 플랫폼에 맞는 [[JDK & JRE & JVM#JVM (Java Virtual Machine)|JVM]]이 존재하며, JVM이 동일한 바이트코드를 실행한다.
+각 플랫폼에는 해당 플랫폼에 맞는 [[JVM#JVM (Java Virtual Machine)|JVM]]이 존재하며, JVM이 동일한 바이트코드를 실행한다.
 ## 표준화된 자바 API로 인한 환경 간 일관성
 자바는 방대한 **표준 라이브러리(Java Standard Library)** 를 제공한다.  
 네트워크, 스레드, I/O, 컬렉션 등 대부분의 기능이 동일한 API로 추상화되어 있기 때문에  

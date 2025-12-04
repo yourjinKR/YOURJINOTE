@@ -7,7 +7,7 @@
 사용되지 않는 객체를 메모리에서 자동으로 정리하는 역할을 합니다. 
 이로 인해 메모리 누수를 방지하고 자바 프로그램의 메모리 관리를 용이하게 합니다.
 
-[[RESOURCE/JAVA/[Java] 가비지 컬렉션 (Garbage Collection).md|힙]] 영역에서 참조되지 않는 개체를 수집 및 제거
+[[JVM#힙(Heap)|힙]] 영역에서 참조되지 않는 개체를 수집 및 제거
 
 > **Heap**
 > 동적으로 할당한 메모리 영역
@@ -86,7 +86,7 @@ Mark And Copy Algorithm은 많은 Overhead를 발생시킨다.
 객체는 Young Gen에 할당되고 GC가 수행될 때마다 살아남은 객체에 Age를 기록한다.
 Age가 특정 임계값을 넘어서면 Old Gen으로 Copy하는 작업을 수행한다. (Promotion)
 
-Old Gen으로 복사할 때 압축 Compaction(압축) 작업이 이루어지며 Old Gen이 가득 차서 Full GC를 발생하게 된다면 [[RESOURCE/JAVA/[Java] STW (Stop The World).md|STW]]가 발생한다.
+Old Gen으로 복사할 때 압축 Compaction(압축) 작업이 이루어지며 Old Gen이 가득 차서 Full GC를 발생하게 된다면 [[STW-Stop-The-World|STW]]가 발생한다.
 
 해당 알고리즘은 메모리 파편화, 메모리 활용, Copy 알고리즘의 OverHead 등 여러 알고리즘의 단점을 극복했다.
 

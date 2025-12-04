@@ -1,5 +1,5 @@
 [[Compiler]]
-[[JDK & JRE & JVM]]
+[[JVM]]
 
 컴파일 = 번역, 미리 번역 (C, Java)
 인터프리트 = 통역, 실시간 통역 (Javascript, Python)
