@@ -5,16 +5,12 @@
 
 # 영역
 ![Pasted image 20251203195758](../../GALLERY/Pasted%20image%2020251203195758.png)
-### 메소드 영역(Method Area)
-모든 클래스의 메타데이터(클래스 구조, 메서드 정보 등)를 저장
-### 힙(Heap)
-객체가 동적으로 할당되는 영역으로, 자바에서 생성된 모든 객체는 힙 메모리에 저장
-### 스택(Stack)
-각 쓰레드마다 별도로 할당되는 메모리 영역, 메서드 호출 시 로컬 변수를 저장, 관리
-### PC 레지스터(Program Counter Register)
-현재 실행 중인 명령어의 위치를 저장합니다.
-### 네이티브 메소드 스택(Native Method Stack)
-자바 외부의 네이티브 메소드(C, C++ 등)를 호출
+
+- 메소드 영역(Method Area)
+- 힙(Heap)
+- 스택(Stack)
+- PC 레지스터(Program Counter Register)
+- 네이티브 메소드 스택(Native Method Stack)
 
 # 메소드 영역 (Method Area)
 - JVM이 읽어 들인 각종 타입 정보, 상수, 정적 변수 정보가 저장되는 영역
@@ -33,7 +29,7 @@
 ### 상수 풀 예시
 ![Pasted image 20251203200132](../../GALLERY/Pasted%20image%2020251203200132.png)
 
-# 힙 (Heap)
+# 힙-Heap
 - [가비지 컬렉터](Java-가비지%20컬렉션-Garbage-Collection.md)가 관리하는 메모리 영역으로 Java에서 사용되는 **객체**(인스턴스)가 저장되는 공간
 - 설정에 따라 크기를 변경하거나 고정 가능
 	- 부족 시 `OutOfMemoryError` 오류 발생
