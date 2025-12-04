@@ -1,8 +1,8 @@
 # JVM (Java Virtual Machine)
-- 자바 애플리케이션을 실행하는 [가상-머신-Virtual-Machine](RESOURCE/CS/가상-머신-Virtual-Machine.md)
+- 자바 애플리케이션을 실행하는 [가상-머신-Virtual-Machine](../CS/가상-머신-Virtual-Machine.md)
 - 운영채제와 상관 없이 하나의 코드로 실행
 - 대표적인 단점으로는 속도가 느림
-	- [Java-JIT-컴파일러](RESOURCE/JAVA/Java-JIT-컴파일러.md)로 개선은 되었음
+	- [Java-JIT-컴파일러](Java-JIT-컴파일러.md)로 개선은 되었음
 - Java Compiler가 JAVA로 작성된 소스 코드 .java 파일을 .class 파일인 **Byte Code**로 컴파일한다.  
 - 이제 이 **Byte Code**를 기계어로 변환시키기 위해 가상 CPU가 필요한데, 이것이 **JVM(Java Virtual Machine)**의 역할이다.
 - JVM이 **Byte Code**를 **기계어(Binary Code)**로 변환한다.
