@@ -3,7 +3,7 @@
 [스키마 생성 및 유저 생성](https://goddaehee.tistory.com/278)
 
 MySQL에서는 **스키마**와 **데이터베이스**가 같은 뜻임
-![Pasted image 20251111013947](Pasted%20image%2020251111013947.png)
+![Pasted image 20251111013947](../../../GALLERY/Pasted%20image%2020251111013947.png)
 스키마(데이터베이스)안에 테이블이 있고, 그 테이블 안에 데이터가 있다.
 
 ## 유저를 만들었지만 못찾을때
@@ -93,4 +93,4 @@ FLUSH PRIVILEGES;
 - MySQL 8버전부터 Standard가 삭제됨
 - Authentication String : 추가 인증 수단
 
-![Pasted image 20251125164145](Pasted%20image%2020251125164145.png)
+![Pasted image 20251125164145](../../../GALLERY/Pasted%20image%2020251125164145.png)

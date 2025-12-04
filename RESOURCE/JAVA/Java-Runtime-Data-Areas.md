@@ -4,7 +4,7 @@
 - Java 8부터는 PermGen이 아니라 Metaspace에 속한다.
 
 # 영역
-![Pasted image 20251203195758](Pasted%20image%2020251203195758.png)
+![Pasted image 20251203195758](../../GALLERY/Pasted%20image%2020251203195758.png)
 ### 메소드 영역(Method Area)
 모든 클래스의 메타데이터(클래스 구조, 메서드 정보 등)를 저장
 ### 힙(Heap)
@@ -31,7 +31,7 @@
 > 해당 값들은 모든 쓰레드가 공유한다.
 
 ### 상수 풀 예시
-![Pasted image 20251203200132](Pasted%20image%2020251203200132.png)
+![Pasted image 20251203200132](../../GALLERY/Pasted%20image%2020251203200132.png)
 
 # 힙 (Heap)
 - [가비지 컬렉터](Java-가비지%20컬렉션-Garbage-Collection.md)가 관리하는 메모리 영역으로 Java에서 사용되는 **객체**(인스턴스)가 저장되는 공간
@@ -44,7 +44,7 @@
 
 > Heap 영역에 있는 인스턴스를 접근하기 위해서는 Stack에 저장되어 있는 Reference를 통해 접근
 
-![Pasted image 20251203202355](Pasted%20image%2020251203202355.png)
+![Pasted image 20251203202355](../../GALLERY/Pasted%20image%2020251203202355.png)
 
 ## 세대 단위 컬렉션 이론
 ### 개요 : 세대 단위 컬렉션 이론 기초 가설
@@ -54,7 +54,7 @@
 
 Heap 영역은 효율적인 Garbage Collection을 위해 크게 3가지 영역으로 구분된다.
 
-![Pasted image 20251204204444](Pasted%20image%2020251204204444.png)
+![Pasted image 20251204204444](../../GALLERY/Pasted%20image%2020251204204444.png)
 ### Young Generation
 새롭게 생성된 객체가 할당되는 영역
 대부분 객체가 금방 Unreachable한 상태가 되기 때문에, 많은 객체가 Young 영역에 생성되었다가 사라짐.
@@ -100,7 +100,7 @@ ClassLoader에 의해 동적으로 로딩된 클래스의 메타데이터가 저
 > 슬롯의 용량이 32bit라고 가정, 8bit인 byte 데이터를 넣더라도 byte 변수 하나가 하나의 슬롯을 차지함
 
 ## Stack frame 구조
-![Pasted image 20251203203939](Pasted%20image%2020251203203939.png)
+![Pasted image 20251203203939](../../GALLERY/Pasted%20image%2020251203203939.png)
 ### 상수 풀 참조 (Constant Pool Reference)
 - 메소드가 속한 클래스의 상수를 사용하기 위해 Runtime Constant Pool에 대한 참조값을 가진다
 ### 지역 변수 테이블 (Local Variables Array)

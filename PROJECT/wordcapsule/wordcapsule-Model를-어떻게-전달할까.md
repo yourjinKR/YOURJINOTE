@@ -122,7 +122,7 @@ fun <T> Model.addFrom(dto: T) {
     }  
 }
 ```
-![Pasted image 20251119184825](Pasted%20image%2020251119184825.png)
+![Pasted image 20251119184825](../../GALLERY/Pasted%20image%2020251119184825.png)
 런타임 과정에서 제네릭의 타입은 소거되기에 이는 당연히 작동하지 않는 코드이다.
 > 또 자바에 대한 기초 부족 이슈..
 
@@ -180,7 +180,7 @@ fun <T> Model.addFromTest2(dto: T) {
 ```
 당연히 JVM 런타임 과정에서 Generic의 타입을 소거하기 때문에 `T::class`는 동작하지 않는다.
 
-![Pasted image 20251120192511](Pasted%20image%2020251120192511.png)
+![Pasted image 20251120192511](../../GALLERY/Pasted%20image%2020251120192511.png)
 `reified`가 뭐지?
 
 ```kotlin
@@ -205,7 +205,7 @@ inline fun <reified T : Any> Model.addFromTest3(dto: T) {
 }
 ```
 그로 인해 리플렉션 객체 생성 지점은 해결이 됐으나, `memberProperties`에 아래와 같이 타입에 대한 경고가 발생했다.
-![Pasted image 20251120193427](Pasted%20image%2020251120193427.png)
+![Pasted image 20251120193427](../../GALLERY/Pasted%20image%2020251120193427.png)
 
 ```kotlin
 inline fun <reified T : Any> Model.addFromTest3(dto: T) {  

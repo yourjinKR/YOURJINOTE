@@ -9,9 +9,9 @@ spring:
     username: ${MYSQL_USERNAME}
     password: ${MYSQL_PASSWORD}
 ```
-[MySql-schema(스키마)](MySql-schema(스키마).md)
+[MySql-schema(스키마)](스키마)).md)
 
-[참고](https://chaeyami.tistory.com/244#google_vignette)
+[](https://chaeyami.tistory.com/244#google_vignette)
 
 ## Postgresql
 

@@ -1,5 +1,5 @@
 [Compiler](Compiler.md)
-[JVM](JVM.md)
+[JVM](../JAVA/JVM.md)
 
 컴파일 = 번역, 미리 번역 (C, Java)
 인터프리트 = 통역, 실시간 통역 (Javascript, Python)
@@ -40,6 +40,6 @@ Python, Javascript, Ruby 등이 있다.
 | 컴파일과 실행단계가 분리되어 있어, 실행시에는 실행만 하면 되므로 코드 실행 속도 빠름 | 인터프리트 단계와 실행 단계가 분리되어 있지 않아 반복 수행하므로 실행 속도가 느림          |
 
 참고  
-[컴파일러(위키백과)](https://ko.wikipedia.org/wiki/%EC%BB%B4%ED%8C%8C%EC%9D%BC%EB%9F%AC)  
-[인터프리터(위키백과)](https://ko.wikipedia.org/wiki/%EC%9D%B8%ED%84%B0%ED%94%84%EB%A6%AC%ED%84%B0)
+[컴파일러(위키백과)](위키백과))  
+[인터프리터(위키백과)](위키백과))
 

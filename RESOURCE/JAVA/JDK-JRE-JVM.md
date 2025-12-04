@@ -1,5 +1,5 @@
 # 개요
-![jdk_jre_jvm_image](jdk_jre_jvm_image.png)
+![jdk_jre_jvm_image](../../GALLERY/jdk_jre_jvm_image.png)
 
 ## JDK (Java Development Kit)
 자바를 개발 시 필요한 라이브러리들과 함께 다양한 개발 도구를 포함

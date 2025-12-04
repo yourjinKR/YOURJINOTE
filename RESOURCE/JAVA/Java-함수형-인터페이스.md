@@ -301,4 +301,4 @@ public static void main(String[] args) {
 
 # 출처
 [자바 공식문서](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html)
-[☕-함수형-인터페이스-API#function_종류](https://inpa.tistory.com/entry/%E2%98%95-%ED%95%A8%EC%88%98%ED%98%95-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4-API#function_%EC%A2%85%EB%A5%98)
+[](https://inpa.tistory.com/entry/☕-함수형-인터페이스-API#function_종류](https://inpa.tistory.com/entry/☕-함수형-인터페이스-API#function_종류](https://inpa.tistory.com/entry/☕-함수형-인터페이스-API#function_종류)

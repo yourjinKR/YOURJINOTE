@@ -94,6 +94,6 @@ class QuizOptionController {
 
 
 ## 추가 어노테이션
-![Pasted image 20251111214521](Pasted%20image%2020251111214521.png)
+![Pasted image 20251111214521](../../GALLERY/Pasted%20image%2020251111214521.png)
 [출처-티스토리](https://dev-coco.tistory.com/123)
 

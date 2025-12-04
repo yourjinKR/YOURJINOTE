@@ -26,7 +26,7 @@
 
 ### • 플랫폼 독립성과 안정성 → 여러 환경에 동일한 코드 사용 가능
 
-- 자바는 “Write Once, Run Anywhere (WORA)”라는 설계 철학을 가집니다. 즉, 한 번 작성한 자바 코드는 운영체제나 하드웨어가 달라도 동일한 동작을 보장받을 수 있습니다. ([차곡차곡 성 쌓기](https://uzinlab.tistory.com/112?utm_source=chatgpt.com "자바#1 - JAVA의 시작 (JAVA의 태동과 특징)"))
+- 자바는 “Write Once, Run Anywhere (WORA)”라는 설계 철학을 가집니다. 즉, 한 번 작성한 자바 코드는 운영체제나 하드웨어가 달라도 동일한 동작을 보장받을 수 있습니다. ([](https://uzinlab.tistory.com/112?utm_source=chatgpt.com%20"자바#1%20-%20JAVA의%20시작%20(JAVA의%20태동과%20특징)"))
     
 - 이식성 덕분에 특정 OS나 하드웨어에 맞춰 별도 포팅/빌드 작업을 할 필요가 적어지고, 다양한 환경(개발 PC, 테스트 서버, 운영 서버 등)에 걸쳐 유지보수 및 배포가 쉬워집니다.
     

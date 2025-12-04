@@ -1,7 +1,7 @@
 # 정적 프로퍼티와 메서드
 자바에서는 `static`이지만 코틀린에서는 `companion object` 내부에서 선언하여 구현
 
-[Kotlin 기본 문법 8 : 정적 변수와 정적 메소드(feat. companion object)](https://colabear754.tistory.com/63)
+[Kotlin 기본 문법 8 : 정적 변수와 정적 메소드(feat. companion object)](feat.%20companion%20object))
 ```kotlin
 // static == companion object  
 class Calculator {  

@@ -23,7 +23,7 @@
 클래스 변수들을 적절한 값으로 초기화 한다. 즉, static 필드들이 설정된 값으로 초기화한다.
 # 클래스 로더의 종류
 클래스 로더는 한 둘이 아니다.
-![Pasted image 20251127174301](Pasted%20image%2020251127174301.png)
+![Pasted image 20251127174301](../../GALLERY/Pasted%20image%2020251127174301.png)
 ## 부트 스트랩 클래스 로더 (Bootstrap Class Loader)
 JVM 시작 시 **가장 최초로 실행되는 클래스 로더**이다.
 부트스트랩 클래스 로더는 자바 클래스를 로드하는 것이 아닌, 자바 클래스를 로드할 수 있는 자바 자체의 클래스 로더와 최소한의 자바 클래스만을  로드한다.
@@ -106,4 +106,4 @@ public class RuntimeLoading {
 클래스의 로딩, 초기화 시점에 대한 이야기와 예상 면접 질문 및 답변은 링크를 참고하자 
 [f-lab](https://f-lab.kr/insight/understanding-jvm-class-loader-20250529?gad_source=1&gad_campaignid=22368870602&gbraid=0AAAAACGgUFdfKzkzzvnlSSkanha9oUlBE&gclid=CjwKCAiA86_JBhAIEiwA4i9JuynLqNNXbnPWq0WQA474xiQxdWCQzbx4TDzy44KdlxbtO742gca9RhoCyYgQAvD_BwE)
 
-[출처](https://steady-coding.tistory.com/593#google_vignette)
+[](https://steady-coding.tistory.com/593#google_vignette)

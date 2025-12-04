@@ -24,7 +24,7 @@ class Child extends Parent { }
 
 <br/>
 
-![Pasted image 20251129161824](Pasted%20image%2020251129161824.png)
+![Pasted image 20251129161824](../../GALLERY/Pasted%20image%2020251129161824.png)
 
 ## 상속을 배우는 순간부터 알아야 할 시간차 
 - 부모 클래스와 파생 클래스가 정의되는 시점

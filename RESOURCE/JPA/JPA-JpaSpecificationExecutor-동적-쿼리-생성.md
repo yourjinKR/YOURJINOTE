@@ -325,7 +325,7 @@ public interface Repository extends
 동적쿼리: 조건이 다양하고 동적으로 조합할 경우, 유지보수와 확장성이 중요한 경우
 
 # 출처
-[JPA 정적쿼리, 동적쿼리(feat. JpaSpecificationExecutor)-티스토리](https://luckygirljinny.tistory.com/312)
+[JPA 정적쿼리, 동적쿼리(feat. JpaSpecificationExecutor)-티스토리](feat.%20JpaSpecificationExecutor)-티스토리)
 
 [동적 쿼리 생성을 위해 JPA Specification 적용-티스토리](https://wookjongbackend.tistory.com/41)
 

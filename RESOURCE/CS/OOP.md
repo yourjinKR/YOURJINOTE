@@ -35,15 +35,15 @@
 상속을 통해 기존의 클래스를 상속받은 하위 클래스를 이용해 프로그래밍 요구에 맞추어 클래스를 수정할 
 수 있고 클래스 간의 종속 관계를 만듦으로써 객체를 조직화 할  수 있다.
 ### Java에서의 상속
-[자세히](Java-상속과-관계.md)
+[자세히](../JAVA/Java-상속과-관계.md)
 ## 다형성
 어떤 객체의 속성이나 기능이 그 맥락에 따라 다른 역할을 수행할수 있는 객체 지향의 특성을 의미한다.
 ### Java에서의 다형성
-[Java - 다형성](Java%20-%20다형성)
-[Java-추상-클래스-Abstract-Class](Java-추상-클래스-Abstract-Class.md)
-[Java-인터페이스-Interface](Java-인터페이스-Interface.md)
-[Java-추상-클래스와-인터페이스-비교](Java-추상-클래스와-인터페이스-비교.md)
-[Java-열거형-Enum](Java-열거형-Enum.md)
+[Java - 다형성](../../Java%20-%20다형성.md)
+[Java-추상-클래스-Abstract-Class](../JAVA/Java-추상-클래스-Abstract-Class.md)
+[Java-인터페이스-Interface](../JAVA/Java-인터페이스-Interface.md)
+[Java-추상-클래스와-인터페이스-비교](../JAVA/Java-추상-클래스와-인터페이스-비교.md)
+[Java-열거형-Enum](../JAVA/Java-열거형-Enum.md)
 
 ### 다형성의 예시
 대표적인 예시로 메서드 오버라이딩과 메서드 오버로딩이다.

@@ -3,7 +3,7 @@
 코틀린에서는 람다나 함수 참조를 사용해 함수를 값으로 표현 가능
 
 ## 함수 타입
-![Pasted image 20251119163902](Pasted%20image%2020251119163902.png)
+![Pasted image 20251119163902](../../GALLERY/Pasted%20image%2020251119163902.png)
 코틀린은 타입 추론이 지원되기에 변수 타입을 지정하지 않고 람다 자체를 변수에 대입 할 수 있음
 
 ```kotlin
@@ -22,7 +22,7 @@ var funOrNull: ((Int, Int) -> Int)? = Null // 함수 자체가 null
 ```
 
 ## 함수 타입을 인자로 사용
-![Pasted image 20251119165830](Pasted%20image%2020251119165830.png)
+![Pasted image 20251119165830](../../GALLERY/Pasted%20image%2020251119165830.png)
 
 ```kotlin
 fun sumToString(num1: Int, num2: Int , function: (Int, Int) -> Int) {  
