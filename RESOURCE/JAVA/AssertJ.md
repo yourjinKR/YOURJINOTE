@@ -1,4 +1,4 @@
-#test-code
+
 ### 빌드
 ```groovy
 testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.21.0'

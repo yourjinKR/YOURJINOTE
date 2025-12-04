@@ -27,7 +27,7 @@ public interface UserRepository extends
 }
 ```
 
-### 스펙 정의
+### 스펙 정의1
 ```java
 public class UserSpecifications {
  
@@ -50,6 +50,31 @@ public class UserSpecifications {
     }
 }
 ```
+
+### 스펙 정의2 (해당 방식 추천)
+```java
+public static Specification<Member> searchWith(
+	final String gitHubId, 
+	final CareerLevel careerLevel,
+	final JobType jobType
+	) {
+    return ((root, query, builder) -> {
+        List<Predicate> predicates = new ArrayList<>();
+        if (StringUtils.hasText(gitHubId)) {
+            predicates.add(builder.like(root.get("gitHubId"), "%" + gitHubId + "%"));
+        }
+        if (careerLevel != null) {
+            predicates.add(builder.equal(root.get("careerLevel"), careerLevel));
+        }
+        if (jobType != null) {
+            predicates.add(builder.equal(root.get("jobType"), jobType));
+        }
+        return builder.and(predicates.toArray(new Predicate[0]));
+    });
+}
+```
+해당 방식은 파라미터로 받지 않은 검색 조건에 대해서는 스펙을 정의하지 않기에
+편의성을 높이면서 더욱 동적으로 쿼리를 관리할 수 있다.
 
 ### 동적쿼리 실행
 ```java
@@ -299,4 +324,9 @@ public interface Repository extends
 정적쿼리 : 조건이 단순하고 메서드 명으로 충분히 표현 가능할때
 동적쿼리: 조건이 다양하고 동적으로 조합할 경우, 유지보수와 확장성이 중요한 경우
 
+# 출처
 [JPA 정적쿼리, 동적쿼리(feat. JpaSpecificationExecutor)-티스토리](https://luckygirljinny.tistory.com/312)
+
+[동적 쿼리 생성을 위해 JPA Specification 적용-티스토리](https://wookjongbackend.tistory.com/41)
+
+[테코블](https://tecoble.techcourse.co.kr/post/2022-10-11-jpa-dynamic-query/)

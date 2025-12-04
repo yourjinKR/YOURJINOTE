@@ -1,5 +1,3 @@
-#java #collection #list #평탄화 #flatMap
-
 2차원 리스트를 1차원 리스트로 변경할때 사용
 
 ```java

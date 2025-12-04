@@ -130,7 +130,7 @@ chmod +x build.sh
 | --- | --------------------------------------- | ----------- |
 | 1   | `find src -name "*.java" > sources.txt` | 소스 파일 목록 생성 |
 | 2   | `javac -d out @sources.txt`             | 소스 파일 컴파일   |
-| 3   | `java -cp out app.Main`                 | 프로그램 실행     ||
+| 3   | `java -cp out app.Main`                 | 프로그램 실행     |
 
 ## 9. 정리
 - `javac`는 `.java` 파일을 `.class` 파일로 변환하는 컴파일러이다.

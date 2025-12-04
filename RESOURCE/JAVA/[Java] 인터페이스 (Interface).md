@@ -55,3 +55,9 @@ public interface Repairable {
     }  
 }
 ```
+
+# 출처
+
+
+# 기타
+[[Interface에 대한 이슈 정리]]
