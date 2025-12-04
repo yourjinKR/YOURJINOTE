@@ -1,6 +1,6 @@
-# Runtime Data Area란?
+# Runtime Data Area란
 - [JVM](JVM.md)이 읽어 들인 각종 타입 정보, 상수, 정적 변수 정보가 저장되는 영역
-- [Java-JIT-컴파일러](Java-JIT-컴파일러.md)가 번역한 **기계어 코드를 캐싱**하기 위한 메모리 공간으로 활용
+- [JIT 컴파일러](Java-JIT-컴파일러.md)가 번역한 **기계어 코드를 캐싱**하기 위한 메모리 공간으로 활용
 - Java 8부터는 PermGen이 아니라 Metaspace에 속한다.
 
 # 영역
@@ -30,7 +30,7 @@
 ![Pasted image 20251203200132](../../GALLERY/Pasted%20image%2020251203200132.png)
 
 # 힙-Heap
-- [가비지 컬렉터](Java-가비지%20컬렉션-Garbage-Collection.md)가 관리하는 메모리 영역으로 Java에서 사용되는 **객체**(인스턴스)가 저장되는 공간
+- [가비지 컬렉터](Java-가비지-컬렉션-Garbage-Collection.md)가 관리하는 메모리 영역으로 Java에서 사용되는 **객체**(인스턴스)가 저장되는 공간
 - 설정에 따라 크기를 변경하거나 고정 가능
 	- 부족 시 `OutOfMemoryError` 오류 발생
 - 세대별 컬렉션 이론(Generational collection theory)을 기반으로 설계 및 운영
