@@ -8,8 +8,7 @@
 
 [힙](Java-Runtime-Data-Areas.md#힙-Heap) 영역에서 참조되지 않는 개체를 수집 및 제거
 
-> **Heap**
-> 동적으로 할당한 메모리 영역<br>모든 Object 타입의 데이터가 할당, Heap영역의 Object를 가리키는 참조 변수가 Stack에 할당
+> **Heap**<br>동적으로 할당한 메모리 영역<br>모든 Object 타입의 데이터가 할당, Heap영역의 Object를 가리키는 참조 변수가 Stack에 할당
 
 # Garbage Collector 알고리즘
 

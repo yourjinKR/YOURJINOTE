@@ -112,3 +112,5 @@ public abstract class ResponseEntityExceptionHandler {
 
 # 출처
 https://tecoble.techcourse.co.kr/post/2023-05-03-ExceptionHandler-ControllerAdvice/
+
+https://mangkyu.tistory.com/205
