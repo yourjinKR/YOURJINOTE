@@ -1,6 +1,6 @@
 # JVM (Java Virtual Machine)
 - 자바 애플리케이션을 실행하는 [가상 머신](../CS/가상-머신-Virtual-Machine.md)
-- 운영채제와 상관 없이 하나의 코드로 실행
+- 운영체제와 상관 없이 하나의 코드로 실행
 - 대표적인 단점으로는 속도가 느림
 	- [JIT 컴파일러](Java-JIT-컴파일러.md)로 개선은 되었음
 - Java Compiler가 JAVA로 작성된 소스 코드 .java 파일을 .class 파일인 **Byte Code**로 컴파일한다.  
@@ -34,7 +34,7 @@
 [자세히](../CS/Java-클래스-로더-Class-Loader.md)
 
 ## 메모리 구조 (Runtime Data Areas)
-JVM이 프로그램을 실행할 때, 메모리는 **여러 영역**으로 나뉘어 관리
+JVM이 운영체제로부터 할당받은 메모리 영역
 ### 메소드 영역(Method Area)
 모든 클래스의 메타데이터(클래스 구조, 메서드 정보 등)를 저장
 ### 힙(Heap)
