@@ -5,3 +5,4 @@
 @Enumerated(EnumType.STRING)  
 private SocialProvider socialProvide;
 ```
+

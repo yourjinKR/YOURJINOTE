@@ -31,7 +31,10 @@ JVM이 운영체제로부터 할당받은 메모리 영역
 - [가비지 컬렉터](Java-가비지-컬렉션-Garbage-Collection.md)가 관리하는 메모리 영역으로 Java에서 사용되는 **객체**(인스턴스)가 저장되는 공간
 - 설정에 따라 크기를 변경하거나 고정 가능
 	- 부족 시 `OutOfMemoryError` 오류 발생
-- 세대별 컬렉션 이론(Generational collection theory)을 기반으로 설계 및 운영
+- **세대별 컬렉션 이론**을 기반으로 설계 및 운영
+- 핫스팟 VM에서 에덴과 생존자 공간 비율은 보통 8:1
+	- 보통 첫 GC에 98%의 객체가 소멸된다.
+	- 10%는 메모리 파편화 방지를 위해 활용된다.
 
 > `new` 키워드를 통해 동적으로 생성된 인스턴스 객체가 저장되는 영역으로 
 > 모든 쓰레드가 공유하며, **Garbage Collection**의 대상이 되는 영역이다
@@ -40,7 +43,7 @@ JVM이 운영체제로부터 할당받은 메모리 영역
 
 ![Pasted image 20251203202355](../../GALLERY/Pasted%20image%2020251203202355.png)
 
-## 세대 단위 컬렉션 이론
+## 세대 단위 컬렉션 이론 (Generational collection theory)
 ### 개요 : 세대 단위 컬렉션 이론 기초 가설
 - 약한 세대 가설 : 대다수 객체는 일찍 죽는다.
 - 강한 세대 가설 : 가비지 컬렉션 과정에서 살아남은 횟수가 늘어날수록 더 오래 살 가능성이 커진다.
@@ -50,32 +53,41 @@ Heap 영역은 효율적인 Garbage Collection을 위해 크게 3가지 영역�
 
 ![Pasted image 20251204204444](../../GALLERY/Pasted%20image%2020251204204444.png)
 ### Young Generation
-새롭게 생성된 객체가 할당되는 영역<br>대부분 객체가 금방 Unreachable한 상태가 되기 때문에 많은 객체가 Young 영역에 생성되었다가 사라짐.
+새롭게 생성된 객체가 할당되는 영역  
+대부분 객체가 금방 Unreachable한 상태가 되기 때문에 많은 객체가 Young 영역에 생성되었다가 사라짐.  
 Young 영역에 대한 가비지 컬렉션을 Minor GC라고 부른다.
+#### Eden
+- 객체 생성 직후 저장되는 영역
+- Minor GC 발생 시 Survivor 영역으로 이동
+- Copy & Scavenge 알고리즘
+#### Survivor 0, 1
+- Minor GC 발생 시 Eden, S0에서 살아남은 객체는 S1으로 이동
+- S1에서 살아남은 객체는 Old 영역으로 이동
+- age bit 사용 (참조 계수)
 #### Minor GC
 - new 키워드를 통해 새로운 인스턴스가 생성되면 Eden영역에 저장
-- 이후 Servivor로 이동
+- 이후 Survivor로 이동
 - 시간이 지나면서 이 영역에 있는 데이터는 우선순위에 따라 Old 영역으로 이동 혹은 GC에 의해 수거
 ### Tenured(Old) Generation
-Young Generation영역에 저장되었던 객체 중 오래된 인스턴스가 이동되어 저장되는 영역.
-**Young 영역보다 크게 할당**되며, 영역의 크기가 큰 만큼 가비지는 적게 발생한다.
+Young Generation영역에서 소멸하지 않고 남아있던 인스턴스가 이동되어 저장되는 영역.  
+**Young 영역보다 크게 할당**되며, 영역의 크기가 큰 만큼 가비지는 적게 발생한다.  
 Old 영역에 대한 가비지 컬렉션을 Major GC 또는 Full GC라고 부른다.
-#### Major GC
+#### Major GC (Full GC)
 - Young 영역에서 살아남은 객체가 Old 영역에 복사
 - Old 영역에 할당된 메모리가 허용치를 넘게 되면, Old 영역에 있는 모든 인스턴스들을 검사
 - 참조되지 않는 인스턴스를 한꺼번에 삭제
 - Major GC가 발생하면 [STW](STW-Stop-The-World.md) 발생
 
 ### Permanent Generation
-ClassLoader에 의해 동적으로 로딩된 클래스의 메타데이터가 저장되는 영역
+ClassLoader에 의해 동적으로 로딩된 클래스의 메타데이터가 저장되는 영역  
 이 정보들은 JVM 실행 도중에 변경되지 않으며, JVM 종료 시까지 유지
 
 > Java 8 이후 **Metaspace로 대체**되어 **Heap영역에서 제외**되었다
 
 ## Metaspace
-- Perm 영역에서 저장하던 Class의 Meta 정보들이 이 영역에서 저장
-- Native Memory 영역에 위치하며 JVM이 아닌 운영체제가 관리
-- 클래스 메타데이터와 리플렉션을 이용하는 애플리케이션에서 사용하는 일부 메모리를 저장
+- Perm 영역에서 저장하던 **클래스의 메타 정보**들이 이 영역에서 저장
+- Native Memory 영역에 위치하며 JVM이 아닌 **운영체제가 관리**
+- 클래스 메타데이터와 **리플렉션**을 이용하는 애플리케이션에서 사용하는 일부 메모리를 저장
 
 ### Perm 영역을 대체한 이유
 PermGem은 JVM 내부에 고정된 크기의 메모리 공간이었으며 아래와 같은 문제가 자주 발생

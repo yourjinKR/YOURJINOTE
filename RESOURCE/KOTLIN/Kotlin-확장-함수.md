@@ -84,5 +84,4 @@ fun main() {
 **확장 함수**는 **정적 바인딩** 되어서 -> 컴파일 시간에 Idol의 메모리 주소로 결정되어 버린다.
 
 # 출처
-[](https://kotlinlang.org/docs/extensions.html#generic-extension-functions)
-[Kotlin 확장 함수(Extension Function)를 아시나요?](Extension%20Function)를%20아시나요?)
+[공식 문서](https://kotlinlang.org/docs/extensions.html#generic-extension-functions)
