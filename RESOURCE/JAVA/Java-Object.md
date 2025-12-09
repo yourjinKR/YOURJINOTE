@@ -52,7 +52,7 @@ GC에서 살아남은 횟수를 기록
 #### Lock flag
 객체를 중심으로 멀티 스레드 환경에서 경쟁 조건이 발생하는 문제를 해결하기 위한 것
 
-![[Pasted image 20251208122802.png]]
+![Pasted image 20251208122802](../../GALLERY/Pasted%20image%2020251208122802.png)
 ### Klass word
 
 해당 객체의 **클래스 메타 데이터**가 존재하는 메모리 주소를 가리킨다. (포인터 역할을 수행)  
@@ -93,8 +93,9 @@ long, double → int, float → short, char → byte, boolean → reference
 > 64bit 운영체제에서는 WORD가 8byte이기 때문에 이에 맞추어 메모리 크기를 8의 배수로 고정한다.  
 > 메모리 공간 측면에서는 비효율적이나 CPU의 메모리 접근은 최적화된다.
 
-<br>
+
 # 출처
+
 [인프런-널널한-개발자](https://www.inflearn.com/course/%EB%8F%85%ED%95%98%EA%B2%8C-%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94-java-part2/dashboard)
 
 [baeldung-java-memory-layout](https://www.baeldung.com/java-memory-layout)
