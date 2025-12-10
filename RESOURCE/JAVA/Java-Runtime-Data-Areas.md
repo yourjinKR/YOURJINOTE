@@ -27,7 +27,7 @@ JVM이 운영체제로부터 할당받은 메모리 영역
 ### 상수 풀 예시
 ![Pasted image 20251203200132](../../GALLERY/Pasted%20image%2020251203200132.png)
 
-# 힙-Heap
+# Heap
 - [가비지 컬렉터](Java-가비지-컬렉션-Garbage-Collection.md)가 관리하는 메모리 영역으로 Java에서 사용되는 **객체**(인스턴스)가 저장되는 공간
 - 설정에 따라 크기를 변경하거나 고정 가능
 	- 부족 시 `OutOfMemoryError` 오류 발생
