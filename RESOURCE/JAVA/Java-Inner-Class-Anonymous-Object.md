@@ -1,0 +1,207 @@
+# 중첩 클래스 (Inner Class)
+
+- 클래스 내부에 또 다른 클래스를 선언하는 경우
+- 설계 관점에서 다른 객체가 필요하지만 이를 **캡슐화**할 목적으로 사용
+
+## Static Nasted Class
+
+- 외부 클래스에 속했을 뿐 사실 상 독립적인 다른 클래스
+- 외부 클래스의 `private` 졍적 멤버는 접근 가능
+- 외부 클래스의 `private` 인스턴스 멤버는 접근 불가
+
+```java
+class Outer {
+	 private int data = 5;
+	 private static int dataStatic = 10;
+	 
+	 int getInnerData() {
+		 Inner inner = new Inner();
+		 return inner.getInData();
+	 }
+	 
+	 static class Inner {
+		 private int inData = 50;
+		 private static int inDataStatic = 100;
+		 
+		 int getInData() { return inData; }
+		 int getOuterDataStatic() {
+			 return Outer.dataStatic;
+		 }
+	 }
+}
+```
+
+```java
+public class Main {  
+    public static void main(String[] args) {  
+        Outer out = new Outer();  
+        System.out.println(out.getInnerData());  
+        
+        Outer.Inner inClass = new Outer.Inner();  
+        System.out.println(inClass.getOuterDataStatic());  
+    }  
+}
+```
+
+## Non-static (Inner Class)
+
+- 외부 클래스의 일부 요소로 속하는 클래스
+	- 외부 클래스 내부에 정의
+- 내부 클래스는 외부 클래스의 `private` 멤버에 대해 접근이 허용됨  
+
+- 아래와 같이 3가지로 구분
+	- Inner Class
+	- Local Class
+	- anonymous Class (익명 클래스)
+
+### Inner Class
+
+- 외부(Outer) 클래스의 일부요소로 속하는 클래스
+	- 외부 클래스 내부에 정의
+- 내부 클래스는 외부 클래스의 private 멤버에 대해 접근이 허용됨
+
+```java
+class UserData {  
+    UserData(String name, String addr, String phone) {  
+        this.name = name;  
+        info = new Address(addr, phone);  
+    }  
+  
+    private String name;  
+    private Address info;  
+  
+    public Address getInfo() {  
+        return info;  
+    }  
+  
+    class Address {  
+        public Address(String addr, String phone) {  
+            this.addr = addr;  
+            this.phone = phone;  
+        }  
+  
+        private String addr;  
+        private String phone;  
+  
+        public String getUserInfo() {  
+            return UserData.this.name + ", " + addr + ", " + phone;  
+        }  
+  
+    }  
+}
+```
+
+```java
+public class Main {  
+    public static void main(String[] args) {  
+        UserData user = new UserData(  
+                "Hosung"  
+                ,  
+                "Seoul"  
+                , "010-1111-111");  
+        System.out.println(user.getInfo().getUserInfo());  
+        UserData.Address addr = user.new Address(  
+                "Hanam"  
+                , "010-2222-2222");  
+        System.out.println(addr.getUserInfo());  
+    }  
+}
+```
+
+### Local Class
+- 메서드 바디 스코프 내부에 정의하는 클래스
+	- 익명 객체를 이해하기 위한 필수 이론
+- 메서드 바디 지역변수에 접근 가능
+	- `final` 혹은 유사 `final` 변수
+	- 스택은 객체 인스턴스보다 수명이 길 수 있다
+
+```java
+public class Main {  
+    static void testFunc(Object obj) {  
+        System.out.println(obj.toString());  
+    }  
+    public static void main(String[] args) {  
+        int local = 20;  
+        class LocalClass {  
+            LocalClass(){ data = 10; }  
+            int data;  
+            void printData() {  
+                System.out.println(this.data);  
+                System.out.println(local);  
+            }  
+        }  
+        LocalClass localClass = new LocalClass();  
+        testFunc(localClass);  
+        localClass.printData();  
+    }  
+}
+```
+
+### 내부 인터페이스
+- 클래스 내부에서 interface를 선언하는 경우
+- 주로 정적 멤버 인터페이스로 선언하고 활용
+	- 이벤트 드라이븐 구조를 갖는 **GUI 개발에 자주 등장**
+	- 마우스 클릭 이벤트 발생 시 이를 처리해야 하기 위한 이벤트 감지(Listener) 코드와 대응(Handler) 코드를 일정형식으로 제한하기 용이 (GUI framework의 보편적 형태)
+
+**좌표**
+```java
+class MyPoint {  
+    MyPoint(int x, int y) {  
+        this.x = x;  
+        this.y = y;  
+    }  
+    int x;  
+    int y;  
+}
+```
+
+**마우스 이벤트 처리기를 포함한 윈도우 객체**
+```java
+class MyWindow {  
+    static interface OnClickListener {  
+        public void onClick(MyPoint point);  
+    }  
+    OnClickListener listener;  
+    MyWindow(OnClickListener listener) {  
+        this.listener = listener;  
+    }  
+    void click(MyPoint point) {  
+        listener.onClick(point);  
+    }  
+}
+```
+
+**이벤트 리스너만 재정의 후 코드 작성**
+```java
+class ButtonListener implements MyWindow.OnClickListener {  
+    @Override  
+    public void onClick(MyPoint point) {  
+        System.out.print("ButtonListener.onClick(): ");  
+        System.out.println(point.x + ", " + point.y);  
+    }  
+}  
+public class Main {  
+    public static void main(String[] args) {  
+        MyWindow win = new MyWindow(new ButtonListener());  
+        win.click(new MyPoint(10, 10));  
+        win.click(new MyPoint(200, 150));  
+    }  
+}
+```
+
+### 익명 객체
+
+```java
+parent obj = new parent() {}
+```
+
+- 이름이 없는 (지역) 클래스를 의미
+- 특정 클래스나 인터페이스의 파생 형식으로 존재
+- 클래스로 정의해야 할 필요가 있는 대상이지만 특정구간에서만 필요할 뿐 재사용 가능성이 없을 때 유용
+- 생성자 없음
+- 하나의 구문에 클래스가 포함되는 구조
+	- GUI framework에서 이벤트 수신 및 처리 코드를 효율적으로 간소화
+
+# 출처
+[인프런 - 널널한 개발자](https://www.inflearn.com/course/%EB%8F%85%ED%95%98%EA%B2%8C-%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94-java-part2/dashboard)  
+[티스토리 - 자바 내부 클래스 개념 정리 및 사용법](https://ittrue.tistory.com/123)  
