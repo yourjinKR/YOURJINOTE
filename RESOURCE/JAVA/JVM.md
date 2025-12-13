@@ -31,7 +31,7 @@
 ### 초기화
 정적 필드 및 초기화 블록을 실행
 
-[자세히](../CS/Java-클래스-로더-Class-Loader.md)
+[자세히](Java-클래스-로더-Class-Loader.md)
 
 ## 메모리 구조 (Runtime Data Areas)
 JVM이 운영체제로부터 할당받은 메모리 영역

@@ -1,7 +1,6 @@
-## 개요
-스프링에서는 기본적으로 제공하는 에러 페이지가 있다.
-이는 `BasicErrorController`가 담당한다.
-`BasicErrorController` 는 요청의 Accept 헤더 값이 text/html일 때, 예외가 발생하면 `/error` 라는 경로로 재요청을 보내줍니다.
+# 개요
+스프링에서는 기본적으로 제공하는 에러 페이지가 있다. 이는 `BasicErrorController`가 담당한다.  
+`BasicErrorController` 는 요청의 Accept 헤더 값이 text/html일 때, 예외가 발생하면 `/error` 라는 경로로 재요청을 보내준다.
 
 해당 방식은 사용자가 에러 페이지의 경로를 안다면 에러 페이지 자체에 접근할 수 있다는 문제가 있다.
 이를 해결해주는 것이 `@ExceptionHandler`이다.
@@ -109,6 +108,105 @@ public abstract class ResponseEntityExceptionHandler {
 	}
 }
 ```
+
+# 전반적인 흐름 이해 코드
+```java
+// 1. 예외를 처리할 클래스 정의 (@ControllerAdvice)
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+    // 특정 예외 타입 (@ServiceException)을 처리하는 메서드
+    @ExceptionHandler(ServiceException.class)
+    public ResponseEntity<ErrorResponse> handleServiceException(ServiceException ex) {
+        // 예외 로깅 (여기서 예외 되던지기 전의 1차 처리를 할 수 있어요)
+        System.err.println("서비스 계층에서 오류 발생: " + ex.getMessage());
+
+        // 클라이언트에게 전달할 에러 응답 객체 생성
+        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value());
+
+        // 다시 예외를 던지는 대신, 클라이언트에게 적절한 응답을 반환
+        // (Spring에서는 @ExceptionHandler 메서드에서 직접 응답을 반환하는 것이 일반적)
+        return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    // 다른 예외 타입 (@DataNotFoundException)을 처리하는 메서드
+    @ExceptionHandler(DataNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleDataNotFoundException(DataNotFoundException ex) {
+        System.err.println("데이터를 찾을 수 없음: " + ex.getMessage());
+        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), HttpStatus.NOT_FOUND.value());
+        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+    }
+
+    // ... 다른 예외 처리 메서드들 ...
+}
+
+// 2. 서비스 계층에서 사용자 정의 예외 발생
+@Service
+public class MyService {
+
+    public void doSomethingRisky() throws ServiceException {
+        try {
+            // ... 위험한 작업 수행 ...
+            if (/* 오류 발생 조건 */ true) {
+                throw new ServiceException("작업 중 예상치 못한 오류 발생!");
+            }
+        } catch (Exception e) {
+            // 여기서 예외를 잡고, 필요한 로깅 등을 수행한 후
+            // ServiceException으로 감싸서 다시 던짐 (예외 되던지기와 유사한 효과)
+            throw new ServiceException("서비스 로직 처리 중 오류", e);
+        }
+    }
+}
+
+// 3. 컨트롤러에서 서비스 호출
+@RestController
+public class MyController {
+
+    @Autowired
+    private MyService myService;
+
+    @GetMapping("/do-something")
+    public String performAction() {
+        try {
+            myService.doSomethingRisky();
+            return "성공!";
+        } catch (ServiceException e) {
+            // 컨트롤러 레벨에서는 예외를 잡지 않고,
+            // @ControllerAdvice에서 전역적으로 처리하도록 함
+            throw e; // 여기서 다시 던져서 @ControllerAdvice로 전달
+        }
+    }
+}
+
+// 간단한 에러 응답 클래스
+class ErrorResponse {
+    private String message;
+    private int status;
+
+    public ErrorResponse(String message, int status) {
+        this.message = message;
+        this.status = status;
+    }
+    // getters...
+}
+
+// 사용자 정의 예외 클래스 (예시)
+class ServiceException extends Exception {
+    public ServiceException(String message) {
+        super(message);
+    }
+    public ServiceException(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+
+class DataNotFoundException extends Exception {
+    public DataNotFoundException(String message) {
+        super(message);
+    }
+}
+```
+
 
 # 출처
 https://tecoble.techcourse.co.kr/post/2023-05-03-ExceptionHandler-ControllerAdvice/
