@@ -1,7 +1,7 @@
 # Runtime Data Area란
-JVM이 운영체제로부터 할당받은 메모리 영역
 
-# 영역
+[JVM](JVM.md)이 운영체제로부터 할당받은 메모리 영역
+
 ![Pasted image 20251203195758](../../GALLERY/Pasted%20image%2020251203195758.png)
 
 - 메소드 영역(Method Area)
@@ -10,13 +10,22 @@ JVM이 운영체제로부터 할당받은 메모리 영역
 - PC 레지스터(Program Counter Register)
 - 네이티브 메소드 스택(Native Method Stack)
 
+## 요약
+
+- 정적 변수는 메서드 영역에 저장
+- 인스턴스 변수는 힙에 저장
+- 지역 변수는 스택에 저장
+
 # 메소드 영역 (Method Area)
+
+- 힙의 논리적 부분이며 JVM이 시작될 때 생성
 - JVM이 읽어 들인 각종 타입 정보, 상수, 정적 변수 정보가 저장되는 영역
 - JIT 컴파일러가 번역한 기계어 코드를 캐싱하기 위한 메모리 공간으로 활용
 - Java 8부터는 PermGen이 아니라 **Metaspace**에 속함
 
 > **Metaspace**
 > 메타스페이스는 JVM 힙이 아니라 네이티브 메모리에서 관리하며 크기가 동적으로 달라질 수 있다.
+
 ## 상수 풀 (Rutime constant pool)
 - 클래스 버전, 필드, 메서드, 인터페이스 등 클래스 파일에 포함된 정보 및 각종 리터럴, 심볼 참조가 저장되는 영역
 - **클래스 로더가** 클래스를 로드할 때 상기 **정보들을 저장**
@@ -28,90 +37,36 @@ JVM이 운영체제로부터 할당받은 메모리 영역
 ![Pasted image 20251203200132](../../GALLERY/Pasted%20image%2020251203200132.png)
 
 # Heap
-- [가비지 컬렉터](Java-가비지-컬렉션-Garbage-Collection.md)가 관리하는 메모리 영역으로 Java에서 사용되는 **객체**(인스턴스)가 저장되는 공간
+
+- Java에서 사용되는 객체와 배열이 저장되는 공간이며 [가비지 컬렉터](Java-가비지-컬렉션-Garbage-Collection.md)가 메모리 관리
 - 설정에 따라 크기를 변경하거나 고정 가능
 	- 부족 시 `OutOfMemoryError` 오류 발생
-- **세대별 컬렉션 이론**을 기반으로 설계 및 운영
+- [세대 단위 컬렉션 이론](Java-세대-단위-컬렉션-이론-Generational-collection-theory.md)을 기반으로 설계 및 운영
 - 핫스팟 VM에서 에덴과 생존자 공간 비율은 보통 8:1
 	- 보통 첫 GC에 98%의 객체가 소멸된다.
 	- 10%는 메모리 파편화 방지를 위해 활용된다.
 
-> `new` 키워드를 통해 동적으로 생성된 인스턴스 객체가 저장되는 영역으로 
-> 모든 쓰레드가 공유하며, **Garbage Collection**의 대상이 되는 영역이다
+> 모든 쓰레드가 공유하며, 실행 중인 JVM 프로세스에는 오직 하나의 힙만 존재한다.
+> 
+> `new` 키워드를 통해 동적으로 생성된 인스턴스 객체는 힙에 할당되고 해당 참조는 스택에 저장된다.  
+> Heap 영역에 있는 인스턴스를 접근하기 위해서는 Stack에 저장되어 있는 Reference를 통해 접근한다.
 
-> Heap 영역에 있는 인스턴스를 접근하기 위해서는 Stack에 저장되어 있는 Reference를 통해 접근
 
 ![Pasted image 20251203202355](../../GALLERY/Pasted%20image%2020251203202355.png)
 
-## 세대 단위 컬렉션 이론 (Generational collection theory)
-### 개요 : 세대 단위 컬렉션 이론 기초 가설
-- 약한 세대 가설 : 대다수 객체는 일찍 죽는다.
-- 강한 세대 가설 : 가비지 컬렉션 과정에서 살아남은 횟수가 늘어날수록 더 오래 살 가능성이 커진다.
-- 세대 간 참조 가설 : 세대 간 참조의 개수는 같은 세대 안에서 참조보다 훨씬 적다.
-
-Heap 영역은 효율적인 Garbage Collection을 위해 크게 3가지 영역으로 구분된다.
-
-![Pasted image 20251204204444](../../GALLERY/Pasted%20image%2020251204204444.png)
-### Young Generation
-새롭게 생성된 객체가 할당되는 영역  
-대부분 객체가 금방 Unreachable한 상태가 되기 때문에 많은 객체가 Young 영역에 생성되었다가 사라짐.  
-Young 영역에 대한 가비지 컬렉션을 Minor GC라고 부른다.
-#### Eden
-- 객체 생성 직후 저장되는 영역
-- Minor GC 발생 시 Survivor 영역으로 이동
-- Copy & Scavenge 알고리즘
-#### Survivor 0, 1
-- Minor GC 발생 시 Eden, S0에서 살아남은 객체는 S1으로 이동
-- S1에서 살아남은 객체는 Old 영역으로 이동
-- age bit 사용 (참조 계수)
-#### Minor GC
-- new 키워드를 통해 새로운 인스턴스가 생성되면 Eden영역에 저장
-- 이후 Survivor로 이동
-- 시간이 지나면서 이 영역에 있는 데이터는 우선순위에 따라 Old 영역으로 이동 혹은 GC에 의해 수거
-### Tenured(Old) Generation
-Young Generation영역에서 소멸하지 않고 남아있던 인스턴스가 이동되어 저장되는 영역.  
-**Young 영역보다 크게 할당**되며, 영역의 크기가 큰 만큼 가비지는 적게 발생한다.  
-Old 영역에 대한 가비지 컬렉션을 Major GC 또는 Full GC라고 부른다.
-#### Major GC (Full GC)
-- Young 영역에서 살아남은 객체가 Old 영역에 복사
-- Old 영역에 할당된 메모리가 허용치를 넘게 되면, Old 영역에 있는 모든 인스턴스들을 검사
-- 참조되지 않는 인스턴스를 한꺼번에 삭제
-- Major GC가 발생하면 [STW](STW-Stop-The-World.md) 발생
-
-### Permanent Generation
-ClassLoader에 의해 동적으로 로딩된 클래스의 메타데이터가 저장되는 영역  
-이 정보들은 JVM 실행 도중에 변경되지 않으며, JVM 종료 시까지 유지
-
-> Java 8 이후 **Metaspace로 대체**되어 **Heap영역에서 제외**되었다
-
-## Metaspace
-- Perm 영역에서 저장하던 **클래스의 메타 정보**들이 이 영역에서 저장
-- Native Memory 영역에 위치하며 JVM이 아닌 **운영체제가 관리**
-- 클래스 메타데이터와 **리플렉션**을 이용하는 애플리케이션에서 사용하는 일부 메모리를 저장
-
-### Perm 영역을 대체한 이유
-PermGem은 JVM 내부에 고정된 크기의 메모리 공간이었으며 아래와 같은 문제가 자주 발생
-- 클래스를 과도하게 많이 로딩
-- 동적 프록시를 자주 생성
-- 재시작 없이 애플리케이션을 여러 번 redeploy하는 경우
-- 적절한 크기를 조절하기 힘들었음
-	- 너무 적게 잡으면 OOM 발생
-	- 너무 크게 잡으면 메모리 낭비
-
-- Perm 영역의 메모리 누수, OutOfMemoryError 등과 같은 문제
-    - 클래스 로딩 및 언로딩 과정에서 메모리 할당 및 해제의 빈번한 발생으로 인해 이러한 문제가 더 심각해졌다.
-- 클래스 메타데이터를 Native Memory에 저장하면서,  JVM에서의 OutOfMemoryError 문제가 해결되었다.
-
 # 스택 (Stack)
+
 - 지역변수 테이블, 피연산자 스택, 메서드 반환 값 등을 저장
-- 보통 지역변수 테이블을 스택으로 지칭
-- 지역 변수 테이블은 슬롯으로 이루어지며 기본형 변수 하나가 슬록  한 개를 사용
+- 보통 **지역변수 테이블**을 스택으로 지칭
+- 지역 변수 테이블은 **슬롯**으로 이루어지며 기본형 변수 하나가 슬록  한 개를 사용
+- 각 스레드가 자체 스택을 가지고 있기에 **스레드 안정성**을 보장한다.
 - Java 스택의 크기는 메모리 용량이 아니라 슬롯의 개수
 - JVM이 허용하는 스택의 크기를 초과할 경우 `StackOverflowError` 에러 발생
 
 > 슬롯의 용량이 32bit라고 가정, 8bit인 byte 데이터를 넣더라도 byte 변수 하나가 하나의 슬롯을 차지함
 
 ## Stack frame 구조
+
 ![Pasted image 20251203203939](../../GALLERY/Pasted%20image%2020251203203939.png)
 ### 상수 풀 참조 (Constant Pool Reference)
 - 메소드가 속한 클래스의 상수를 사용하기 위해 Runtime Constant Pool에 대한 참조값을 가진다
@@ -146,7 +101,7 @@ PC Register에는 멀티 쓰레드 프로그래밍 환경에서 한 쓰레드가
 - JNI(Java Native Interface)를 통해 표준에 가까운 방식으로 구현이 가능하다.
 
 # 출처
-[인프런 강의](https://www.inflearn.com/course/%EB%8F%85%ED%95%98%EA%B2%8C-%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94-java-part2/dashboard)
-
+[geeksforgeeks](https://www.geeksforgeeks.org/java/java-memory-management/)  
+[인프런 강의](https://www.inflearn.com/course/%EB%8F%85%ED%95%98%EA%B2%8C-%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94-java-part2/dashboard)  
 https://velog.io/@impala/JAVA-JVM-Runtime-Data-Area
 

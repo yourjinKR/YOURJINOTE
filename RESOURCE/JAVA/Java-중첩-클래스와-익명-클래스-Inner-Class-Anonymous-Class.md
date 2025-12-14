@@ -1,14 +1,15 @@
 # 중첩 클래스 (Inner Class)
 
-클래스 내부에 또 다른 클래스를 선언하는 경우
-
-> 중첩 클랫는 **정적 중첩 클래스**와 비정적 중첩 클래스로 나뉜다.  
-> 비정적 중첩 클래스는 **내부 클래스**라고도 한다.  
+- 클래스 내부에 선언된 클래스
+- 아래와 같이 구분된다
+	- 정적 중첩 클래스
+	- 내부 클래스 (비정적 중첩 클래스)
 
 ## 사용 목적
-- 특정 위치에서만 사용되는 클래스들을 논리적으로 그룹화
-- 더욱 견고한 캡슐화
-- 읽기 쉬운 코드 작성을 통한 유지보수성 증가
+
+- 특정 위치에서만 사용되는 클래스들을 **논리적으로 그룹화**
+- 더욱 견고한 **캡슐화**
+- **읽기 쉬운 코드** 작성을 통한 **유지보수성** 증가[
 
 ## Static Nasted Class
 
@@ -62,6 +63,7 @@ public class Main {
 
 ```java
 class UserData {  
+
     UserData(String name, String addr, String phone) {  
         this.name = name;  
         info = new Address(addr, phone);  
@@ -88,11 +90,13 @@ class UserData {
         }  
   
     }  
+    
 }
 ```
 
 ```java
 public class Main {  
+
     public static void main(String[] args) {  
         UserData user = new UserData(  
                 "Hosung"  
@@ -105,6 +109,7 @@ public class Main {
                 , "010-2222-2222");  
         System.out.println(addr.getUserInfo());  
     }  
+    
 }
 ```
 
@@ -118,9 +123,11 @@ public class Main {
 
 ```java
 public class Main {  
+
     static void testFunc(Object obj) {  
         System.out.println(obj.toString());  
     }  
+    
     public static void main(String[] args) {  
         int local = 20;  
         
@@ -137,10 +144,11 @@ public class Main {
         testFunc(localClass);  
         localClass.printData();  
     }  
+    
 }
 ```
 
-### 내부 인터페이스
+### Inner Interface
 
 - 클래스 내부에서 interface를 선언하는 경우
 - 주로 정적 멤버 인터페이스로 선언하고 활용
@@ -196,7 +204,7 @@ public class Main {
 }
 ```
 
-## 사용 예시 
+## 중첩 클래스의 사용 예시 : 빌더 패턴
 
 ```java
 // Spring/JPA 엔티티 또는 DTO 예시
@@ -239,7 +247,7 @@ Member newMember = new Member.Builder()
 ```
 
 
-# 익명 객체
+# 익명 클래스
 
 익명 클래스는 이름이 없는 내부 클래스이다.  
 단 하나의 객체만 필요할 때, 클래스 선언과 객체 생성을 동시에 할 수 있다.

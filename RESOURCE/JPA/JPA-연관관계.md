@@ -28,12 +28,12 @@ public class Order {
 }
 ```
 
-|속성|타입|기본값|설명|실무 팁|
-|---|---|---|---|---|
-|`fetch`|`FetchType`|`EAGER`|연관 엔티티 조회 전략|N+1 이슈를 줄이려면 `LAZY` 권장|
-|`cascade`|`CascadeType[]`|없음|엔티티 상태 전이를 전파|N:1에서 부모 삭제로 이어지는 `REMOVE`는 주의. 대개 명시적으로 저장/삭제 처리|
-|`optional`|`boolean`|`true`|외래 키 `NULL` 허용 여부|`NOT NULL` 제약이 필요하면 `false` 설정 후 DDL도 함께 관리|
-|`targetEntity`|`Class`|유추|제네릭으로 타입 유추가 불가할 때 명시|대부분 불필요|
+| 속성             | 타입              | 기본값     | 실무 팁                                              | 설명                    |
+| -------------- | --------------- | ------- | ------------------------------------------------- | --------------------- |
+| `fetch`        | `FetchType`     | `EAGER` | N+1 이슈를 줄이려면 `LAZY` 권장                            | 연관 엔티티 조회 전략          |
+| `cascade`      | `CascadeType[]` | 없음      | N:1에서 부모 삭제로 이어지는 `REMOVE`는 주의. 대개 명시적으로 저장/삭제 처리 | 엔티티 상태 전이를 전파         |
+| `optional`     | `boolean`       | `true`  | `NOT NULL` 제약이 필요하면 `false` 설정 후 DDL도 함께 관리       | 외래 키 `NULL` 허용 여부     |
+| `targetEntity` | `Class`         | 유추      | 대부분 불필요                                           | 제네릭으로 타입 유추가 불가할 때 명시 |
 
 ### @OneToMany
 

@@ -32,7 +32,7 @@ public static void main(String args[]) throws IOException {
 
 이를 해결하고자 `AutoClosable` 인터페이스를 구현하고 있는 자원에 대해 `try-with-resource` 문법을 추가하여 리소스 반납에 대한 코드를 보다 간결하게 작성할 수 있다.
 
-> `AutoClosable`은 뒤늦게 추가된 인터페이스이지만 `Closable`의 자식 인터페이스가 아닌 부모 인터페이이다.  
+> `AutoClosable`은 뒤늦게 추가된 인터페이스이지만 `Closable`의 자식 인터페이스가 아닌 부모 인터페이스이다.  
 
 ```java
 public static void main(String args[]) throws IOException {

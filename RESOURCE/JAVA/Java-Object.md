@@ -1,4 +1,5 @@
 # 자바에서 객체
+
 자바에서는 기본형을 제외한 모든 데이터를 [객체](../CS/객체-Objcect.md)로 관리한다.  
 뿐만 아니라 자바의 모든 클래스는 [Object 클래스](../JAVA/Java-Object-Class.md)를 상속받는다.
 
@@ -15,9 +16,9 @@
 - `mark word` : Object Header 정보를 포함
 - `klass word` : Langauage Level에서 메타 데이터를 포함
 
-> 이렇기에 자바의 모든 객체들은 기본적으로 12byte의 오버헤드를 가지고 있다.
-
 # Java Object Layout
+
+[JVM 메모리](Java-Runtime-Data-Areas.md)상에서 객체가 어떻게 배치되는지를 의미한다.
 
 ```
 +----------------------+
@@ -31,9 +32,11 @@
 +----------------------+
 ```
 
-- Object Header
+- Object Header (Mark Word + Klass word + Length)
 - Instance Data
 - Padding
+
+> 이렇기에 자바의 모든 객체들은 기본적으로 12byte의 오버헤드를 가지고 있다.
 
 ## Object Header
 
@@ -42,15 +45,21 @@
 - Length
 
 ### Mark word
+
 Object Header를 설명  
-각 **객체의 메타 데이터**가 저장되는 영역
+각 **객체의 메타 데이터**가 아래와 같이 저장된다.
+
+- Hash code
+- Object age
+- Lock flag
+
 #### Hash code
-객체의 메모리 주소를 가리키어 각 객체 별로 고유하게 할당  
-객체 생성 초기에는 0으로 존재하다가 `Object.hashcode()` 메소드가 호출되는 시점에 계산  
+객체의 **메모리 주소**를 가리키어 각 객체 별로 **고유하게 할당**  
+객체 생성 **초기에는 0으로 존재**하다가 `Object.hashcode()` 메소드가 호출되는 시점에 계산  
 #### Object age
 GC에서 살아남은 횟수를 기록  
 #### Lock flag
-객체를 중심으로 멀티 스레드 환경에서 경쟁 조건이 발생하는 문제를 해결하기 위한 것
+객체를 중심으로 멀티 스레드 환경에서 경쟁 조건이 발생하는 문제를 해결하기 위한 공유 변수
 
 ![Pasted image 20251208122802](../../GALLERY/Pasted%20image%2020251208122802.png)
 ### Klass word
@@ -87,6 +96,8 @@ Klass word는 모든 클래스가 공유하는 메타데이터 정보이기 때�
 long, double → int, float → short, char → byte, boolean → reference
 ```
 
+> 크기가 큰 데이터부터 정렬
+
 ## Padding
 
 > CPU에서는 메모리 접근을 최적화하기 위해 WORD 단위로 접근한다.  
@@ -96,11 +107,8 @@ long, double → int, float → short, char → byte, boolean → reference
 
 # 출처
 
-[인프런-널널한-개발자](https://www.inflearn.com/course/%EB%8F%85%ED%95%98%EA%B2%8C-%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94-java-part2/dashboard)
-
-[baeldung-java-memory-layout](https://www.baeldung.com/java-memory-layout)
-
-[JVM 내부의 힙 객체 헤더](https://mangkyu.tistory.com/448)
-
-[Java Object의 Memory Layout과 Trino의 Slice](https://leeyh0216.github.io/posts/trino-slice/)
+[인프런-널널한-개발자](https://www.inflearn.com/course/%EB%8F%85%ED%95%98%EA%B2%8C-%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94-java-part2/dashboard)  
+[baeldung-java-memory-layout](https://www.baeldung.com/java-memory-layout)  
+[JVM 내부의 힙 객체 헤더](https://mangkyu.tistory.com/448)  
+[Java Object의 Memory Layout과 Trino의 Slice](https://leeyh0216.github.io/posts/trino-slice/)  
 
