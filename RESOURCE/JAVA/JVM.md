@@ -15,7 +15,7 @@ JRE의 핵심 구성 요소로, 자바 애플리케이션을 실행하는 [가�
 
 ## 프로그램 실행 과정
 
-![java-jvm](https://blog.kakaocdn.net/dna/sd2Hq/btrII1Qq6il/AAAAAAAAAAAAAAAAAAAAADdp4tGiLv-Dj-Gy6Cw5mdkfrK6ARs6aoFj7iQ7F22-h/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1764514799&allow_ip=&allow_referer=&signature=0lQVjYwnisLuCNCqOv2Hotk5rDI%3D)
+![[Pasted image 20251214221502.png]]
 
 1. 자바 **소스 코드**(.java 파일)를 작성
 2. **JDK**의 **컴파일러**가 자바 소스 파일을 **바이트코드**(.class 파일)로 변환
@@ -28,6 +28,7 @@ JRE의 핵심 구성 요소로, 자바 애플리케이션을 실행하는 [가�
 ![Pasted image 20251202202142](../../GALLERY/Pasted%20image%2020251202202142.png)
 
 ## Class Loader
+
 • JVM의 [Class Loader](Java-클래스-로더-Class-Loader.md)는 자바 바이트코드를 JVM 내부로 로드하는 역할을 수행하고 **여러 클래스를 메모리에 적재**하고, 필요한 **클래스를 동적으로 로드**한다.
 
 ## Runtime Data Areas
@@ -45,9 +46,17 @@ JVM은 메모리를 여러 [런타임 데이터 영역](Java-Runtime-Data-Areas.
 
 실행 엔진은 JVM에서 바이트코드를 실제 기계어로 변환하고 실행하는 핵심 요소이다.
 
-• 인터프리터(Interpreter): 바이트코드를 한 줄씩 읽어 즉시 기계어로 변환하여 실행하는 방식입니다. 속도가 느리지만, 구현이 간단합니다.
-• [JIT Compiler](Java-JIT-컴파일러.md) : 실행 중인 코드를 분석하여, 자주 사용되는 코드(핫스팟)를 기계어로 변환하고 캐시하는 방식입니다. 한번 컴파일된 코드는 다시 변환할 필요가 없기 때문에 속도가 매우 빠릅니다.
-• [가비지 컬렉션 (Garbage-Collection)](Java-가비지-컬렉션-Garbage-Collection.md): 사용되지 않는 객체를 메모리에서 자동으로 정리하는 역할을 합니다. 이로 인해 메모리 누수를 방지하고 자바 프로그램의 메모리 관리를 용이하게 합니다.
+### Interpreter
+
+인터프리터는 바이트코드를 한 줄씩 읽어 즉시 기계어로 변환하여 실행하는 방식입니다. 속도가 느리지만, 구현이 간단합니다.
+
+### JIT Compiler
+
+[JIT Compiler](Java-JIT-컴파일러.md)는 실행 중인 코드를 분석하여, 자주 사용되는 코드(핫스팟)를 기계어로 변환하고 캐시하는 방식입니다. 한번 컴파일된 코드는 다시 변환할 필요가 없기 때문에 속도가 매우 빠릅니다.
+
+### Garbage Collection
+
+[가비지 컬렉션](Java-가비지-컬렉션-Garbage-Collection.md)은사용되지 않는 객체를 메모리에서 자동으로 정리하는 역할을 합니다. 이로 인해 메모리 누수를 방지하고 자바 프로그램의 메모리 관리를 용이하게 합니다.
 
 ## Java Native Interface (JNI)
 
@@ -58,4 +67,6 @@ JVM은 메모리를 여러 [런타임 데이터 영역](Java-Runtime-Data-Areas.
 [geeksforgeeks](https://www.geeksforgeeks.org/java/how-jvm-works-jvm-architecture/)  
 [얄팍한 코딩 사전 유튜브](https://www.youtube.com/watch?v=OxvtGYvVkRU)  
 [블로그](https://inpa.tistory.com/entry/JAVA-%E2%98%95-JDK-JRE-JVM-%EA%B0%9C%EB%85%90-%EA%B5%AC%EC%84%B1-%EC%9B%90%EB%A6%AC-%F0%9F%92%AF-%EC%99%84%EB%B2%BD-%EC%B4%9D%EC%A0%95%EB%A6%AC)  
-[블로그2](https://sung-98.tistory.com/133)
+[블로그2](https://sung-98.tistory.com/133)  
+[velog - Java 실행 과정 및 JVM](https://velog.io/@baekgom/JVMJava-Virtual-Machine-%EC%9E%90%EB%B0%94-%EA%B0%80%EC%83%81-%EB%A8%B8%EC%8B%A0#3-%EB%B3%80%ED%99%98-%EC%9D%B4%EC%9C%A0)
+
