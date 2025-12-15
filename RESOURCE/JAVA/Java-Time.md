@@ -41,6 +41,7 @@ LocalDate tomorrow = today.plusDays(1);
 | 날짜 + 시간       | `LocalDateTime` |
 | 날짜 + 시간 + 타임존 | `ZonedDateTime` |
 | UTC 기준 시점     | `Instant`       |
+
 <br><br>
 # 주요 클래스
 
@@ -107,7 +108,7 @@ System.out.println(seoulTime); // 2025-12-15T09:26:49.688150500+09:00[Asia/Seoul
 
 ### Instant
 
-- UTC 기준 [타임 스탬프](Timestamp.md)
+- UTC 기준 [Timestamp](../CS/Timestamp.md)
 - 내부 구조
 	- epochSecond
 	- nanoAdjustment
@@ -204,6 +205,7 @@ private LocalDateTime createdAt;
 
 > 또한 타임존은 지역에 따라 연산이 필요하기에 DB는 고정된 LocalDateTime으로 관리하고,  
 > UI 단계에서 타임존을 적용하는 방향성으로 개발하자.
+
 <br><br>
 # 출처
 
