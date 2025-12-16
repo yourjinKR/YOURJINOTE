@@ -1,13 +1,8 @@
-[Compiler](Compiler.md)
-[JVM](../JAVA/JVM.md)
 
 컴파일 = 번역, 미리 번역 (C, Java)
 인터프리트 = 통역, 실시간 통역 (Javascript, Python)
-[출처](https://velog.io/@congaweb/compiler-interpreter)
 
 # 컴파일러 언어
-
----
 
 컴파일러(compiler)는 고급 언어로 작성 된 소스 코드를 저급 언어로 번역하는 프로그램을 가리킨다. 여기서 고급 언어는 사람이 이해하기 쉽도록 작성된 프로그래밍 언어로 C, C++, JAVA 등이 이에 속한다. 저급 언어는 컴퓨터 내부에서 바로 처리 가능한 프로그래밍 언어로 기계어와 어셈블리어 등이 이에 속한다.
 
@@ -17,8 +12,6 @@
 C, C++, C#, JAVA 등이 있다.
 
 # 인터프리터 언어
-
----
 
 [인터프리터(Interpreter)](Interpreter.md)는 프로그래밍 언어의 소스 코드를 바로 실행하는 컴퓨터 프로그램을 말한다.
 
@@ -40,3 +33,4 @@ Python, Javascript, Ruby 등이 있다.
 | 컴파일과 실행단계가 분리되어 있어, 실행시에는 실행만 하면 되므로 코드 실행 속도 빠름 | 인터프리트 단계와 실행 단계가 분리되어 있지 않아 반복 수행하므로 실행 속도가 느림          |
 
 
+[출처](https://velog.io/@congaweb/compiler-interpreter)
