@@ -8,15 +8,22 @@
 - 프레임워크 : 표준화된 체계적인 프로그래밍 방식
 - 컬렉션 클래스 : 다수의 데이터를 저장 할 수 있는 클래스
 
+
+```java
+public interface Collection<E> extends Iterable<E> {}
+```
+
+모든 `Collection`은 [Iterable](Java-Iterator.md)를 상속받고 있다.
+
 <br>
 
 # 핵심 인터페이스
 
-- List : 순서가 있는 데이터의 집합이며 중복을 허용한다.
+- [List](Java-List.md) : 순서가 있는 데이터의 집합이며 중복을 허용한다.
 - Set : 순서를 유지하기 않는 데이터의 집합, 데이터의 중복을 허용하지 않는다.
 - Map : 키와 값의 쌍으로 이루어진 데이터의 집합이다.
 
-![[Pasted image 20251216133834.png]]
+![Pasted image 20251216133834](../../GALLERY/Pasted%20image%2020251216133834.png)
 
 <br>
 
