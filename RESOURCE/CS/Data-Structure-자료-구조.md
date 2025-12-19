@@ -46,14 +46,14 @@
 -  **기본 자료구조**
     
     - [ ]  **배열 (Array)**
-        - [ ]  기본 개념 및 특징
+        - [x]  기본 개념 및 특징
         - [ ]  동적 배열 (ArrayList 등)의 동작 방식 및 시간 복잡도
     - [ ]  **연결 리스트 (Linked List)**
-        - [ ]  단일 연결 리스트 (Singly Linked List)
-        - [ ]  이중 연결 리스트 (Doubly Linked List)
+        - [x]  단일 연결 리스트 (Singly Linked List)
+        - [x]  이중 연결 리스트 (Doubly Linked List)
         - [ ]  삽입, 삭제, 검색 연산 및 시간 복잡도
-    - [ ]  **배열 vs 연결 리스트 비교**
-        - [ ]  각 자료구조의 장단점 및 사용 사례
+    - [x]  **배열 vs 연결 리스트 비교**
+        - [x]  각 자료구조의 장단점 및 사용 사례
     - [ ]  **스택 (Stack)**
         - [ ]  LIFO (Last-In, First-Out) 개념
         - [ ]  주요 연산 (Push, Pop, Peek) 및 시간 복잡도

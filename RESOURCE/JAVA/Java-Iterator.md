@@ -1,7 +1,7 @@
 
 # Iterator
 
-컬렉션에 저장된 요소들을 순차적으로 순회하기 위해 표준화된 인터페이스이다.
+[컬렉션](Java-Collection-Framework.md)에 저장된 요소들을 **순차적으로 순회**하기 위해 표준화된 인터페이스이다.
 
 ```java
 public interface Iterator<E> {

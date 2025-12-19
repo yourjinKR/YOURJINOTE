@@ -101,7 +101,7 @@ public class LinkedList<E>
 | 검색                                  | 최악의 경우 리스트에 있는 아이템 수 만큼 확인          | 최악의 경우 리스트에 있는 아이템 수 만큼 확인     |
 | [CPU chache](../CS/CPU%20chache.md) | CPU cache 이점 활용                     | -                              |
 
-> `ArrayList`는 배열을 사용하고 배열의 메모리 구조는 연속적이기에 캐시 동작 원리 중 공간 지역성으로 인해 CPU chache가 동작할 수 있다.
+> `ArrayList`는 내부적으로 연속적인 배열 구조를 사용하기 때문에 공간 지역성(spatial locality)이 적용되어 CPU 캐시 히트율이 높아지며, 순차 접근 시 매우 빠른 성능을 보인다.
 
 
 **ArrayList**
@@ -138,12 +138,29 @@ LinkedList<?> list4 = new LinkedList<>(list2);
 ## Vector / Stack (Legacy)
 
 ### Vector
+
 - `ArrayList`와 동일한 동적 배열 구조
 - 모든 메서드가 `synchronized` 명시되어 있어 성능 저하
 - 현업에서는 거의 사용하지 않음
 ### Stack
+
 - `Vector`를 상속한 구식 구조
 - 대신 `Deque` 기반의 `ArrayDeque` 사용을 권장한다.
+- `push()`, `pop()`을 통해 데이터를 삽입/삭제 한다.
+	- 빈 Stack `pop()`을 요청하면 `EmptyStackException`이 발생
+
+```java
+Stack<Integer> stack =  new Stack<>();  
+  
+stack.push(1);  
+stack.push(2);  
+stack.push(3);  
+  
+System.out.println(stack.pop()); // 3  
+System.out.println(stack.pop()); // 2  
+System.out.println(stack.pop()); // 1  
+System.out.println(stack.pop()); // EmptyStackException
+```
 
 # 주의사항
 

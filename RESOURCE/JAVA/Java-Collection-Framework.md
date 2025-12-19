@@ -25,6 +25,27 @@ public interface Collection<E> extends Iterable<E> {}
 
 ![Pasted image 20251216133834](../../GALLERY/Pasted%20image%2020251216133834.png)
 
+## Queue
+
+자바에서 큐는 인터페이스이기에 별도의 클래스로 구현해야 된다.  
+대표적으로 `LinkedList`로 구현한다.
+
+```java
+Queue<Integer> queue = new LinkedList<>();  
+  
+queue.offer(1);  
+queue.offer(2);  
+queue.offer(3);  
+  
+System.out.println(queue.poll());  
+System.out.println(queue.poll());  
+System.out.println(queue.poll());  
+System.out.println(queue.poll()); // null
+```
+
+큐에 데이터가 없을 때 `poll()`를 호출 시 `null`를 반환한다.
+
+
 <br>
 
 # Collection 인터페이스의 메서드
@@ -79,3 +100,4 @@ interface SequencedCollection<E> extends Collection<E> {
 [geeksforgkeeks](https://www.geeksforgeeks.org/java/java-collection-tutorial/)  
 [tcp-school](http://www.tcpschool.com/java/java_collectionFramework_concept)  
 [티스토리 - Collection 인터페이스 대표 메서드](https://travelbeeee.tistory.com/474)  
+[티스토리 - 자바의 Queue](https://coding-factory.tistory.com/602)
