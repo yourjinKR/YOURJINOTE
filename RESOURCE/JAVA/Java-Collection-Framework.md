@@ -20,7 +20,7 @@ public interface Collection<E> extends Iterable<E> {}
 # 핵심 인터페이스
 
 - [List](Java-List.md) : 순서가 있는 데이터의 집합이며 중복을 허용한다.
-- Set : 순서를 유지하기 않는 데이터의 집합, 데이터의 중복을 허용하지 않는다.
+- [Set](Java-Set.md) : 순서를 유지하기 않는 데이터의 집합, 데이터의 중복을 허용하지 않는다.
 - Map : 키와 값의 쌍으로 이루어진 데이터의 집합이다.
 
 ![Pasted image 20251216133834](../../GALLERY/Pasted%20image%2020251216133834.png)

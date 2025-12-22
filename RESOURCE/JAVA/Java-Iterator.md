@@ -1,7 +1,7 @@
 
 # Iterator
 
-[컬렉션](Java-Collection-Framework.md)에 저장된 요소들을 **순차적으로 순회**하기 위해 표준화된 인터페이스이다.
+[컬렉션](Java-Collection-Framework.md)에 저장된 요소들을 **순차적으로 순회**하기 위해 **표준화**된 인터페이스이다.
 
 ```java
 public interface Iterator<E> {
@@ -26,6 +26,29 @@ public interface Iterator<E> {
 | `E next()`                                                  | 다음 요소를 반환하고 커서를 이동       |
 | `default void remove()`                                     | 현재 요소 삭제                 |
 | `default void forEachRemaining(Consumer<? super E> action)` | 남은 모든 요소에 반복 처리 (Java 8) |
+
+```java
+public interface Collection<E> extends Iterable<E> {  
+    // Query Operations
+}
+```
+
+```java
+List<String> list = List.of("유어진", "최재원", "윤준혁");  
+  
+Iterator<String> iterator = list.iterator();  
+  
+while (iterator.hasNext()) {  
+    System.out.println(iterator.next());  
+}  
+  
+for (String s : list) {  
+    System.out.println(s);  
+}
+```
+
+> Iterator를 사용하면 반복 과정에 대해 표준화가 가능하다.  
+> 모든 `Collection`은 `Iterable`를 참조하고 있기 때문에...
 
 <br>
 
