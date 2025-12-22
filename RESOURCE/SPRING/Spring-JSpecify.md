@@ -1,6 +1,6 @@
 # 기존 Non-Null 처리 방식
 
-![Pasted image 20251221094713](GALLERY/Pasted%20image%2020251221094713.png)
+![Pasted image 20251222201126](../../GALLERY/Pasted%20image%2020251222201126.png)
 
 Non-Null한 구조임에도 불구하고 IDE에서는 null에 대한 체크를 명시하도록 요구한다.
 그렇다면 지금과 같이 모든 인자에 `@NonNull`를 명시해야 되는 불편함이 있다.

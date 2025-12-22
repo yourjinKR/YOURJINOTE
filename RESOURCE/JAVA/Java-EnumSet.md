@@ -2,7 +2,7 @@
 
 Java에서 [열거형](Java-열거형-Enum.md)과 함께 사용하기 위한 특수한 구현체이다.  
 
-- `AbstractSet` 클래스를 확장하고 [[RESOURCE/JAVA/Java-Set.md|Set]] 인터페이스를 구현함
+- `AbstractSet` 클래스를 확장하고 [Set](Java-Set.md) 인터페이스를 구현함
 - `HashSet`보다 훨씬 고성능
 - EnumSet의 모든 요소는 생성할때 명시적 또는 암시적으로 지정된 단일 열거형 유형에서 가져와야 함 
 - `null`를 허용하지 않으며 `null` 삽입 시도시 NPE 발생

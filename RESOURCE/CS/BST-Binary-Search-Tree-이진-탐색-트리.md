@@ -1,7 +1,7 @@
 # BST
 
 
-![[Pasted image 20251222182857.png]]
+![Pasted image 20251222182857](../../GALLERY/Pasted%20image%2020251222182857.png)
 
 - 각 노드에 값이 있다.
 - 값들은 전순서가 있다.
