@@ -13,7 +13,11 @@
 public interface Collection<E> extends Iterable<E> {}
 ```
 
-모든 `Collection`은 [Iterable](Java-Iterator.md)를 상속받고 있다.
+- 모든 `Collection`은 [Iterable](Java-Iterator.md)를 상속받고 있다.
+
+> `iterable`은 객체가 `iteror`를 제공하여 `for-each` 문으로 순회될 수 있음을 보장하는 인터페이스 
+
+- [Collections](Java-Collections.md)클래스를 통해 여러 유틸성 메서드를 제공한다.
 
 <br>
 
@@ -21,7 +25,7 @@ public interface Collection<E> extends Iterable<E> {}
 
 - [List](Java-List.md) : 순서가 있는 데이터의 집합이며 중복을 허용한다.
 - [Set](Java-Set.md) : 순서를 유지하기 않는 데이터의 집합, 데이터의 중복을 허용하지 않는다.
-- Map : 키와 값의 쌍으로 이루어진 데이터의 집합이다.
+- [Map](Java-Map.md) : 키와 값의 쌍으로 이루어진 데이터의 집합이다.
 
 ![Pasted image 20251216133834](../../GALLERY/Pasted%20image%2020251216133834.png)
 
@@ -71,6 +75,33 @@ System.out.println(queue.poll()); // null
 
 <br>
 
+# AbstractCollection
+
+`Collection` 인터페이스의 기본 구현을 제공하여 해당 인터페이스를 구현하는데 부담을 줄인다.  
+해당 구조는 [템플릿 메소드 패턴](../CS/Template-Method-Pattern-템플릿-메소드-패턴.md)의 전형적인 예시이다.
+
+- 구현 부담 감소
+- 일관된 기본 동작 제공
+- 확장에 유리한 구조
+
+대표적인 예시는 다음과 같다.
+
+- `AbstractCollection`
+- `AbstractList`
+- `AbstractSet`
+- `AbstractMap`
+- `AbstractQueue`
+
+수정 가능한 컬렉션을 구현하려면 해당 클래스의 `add()`를 추가로 재정의가 필요함.
+
+```java
+public boolean add(E e) {  
+    throw new UnsupportedOperationException();  
+}
+```
+
+<br>
+
 # SequencedCollection 
 
 `Collection` 인터페이스에는 순서에 대한 개념이 없었고, 이로 인해 순서가 있는 컬렉션을 매개변수로 받거나 반환할때 명확히 표현하기 어려웠다.  
@@ -98,6 +129,7 @@ interface SequencedCollection<E> extends Collection<E> {
 # 출처
 
 [geeksforgkeeks](https://www.geeksforgeeks.org/java/java-collection-tutorial/)  
+[oracle - AbstractCollection](https://docs.oracle.com/javase/8/docs/api/java/util/AbstractCollection.html)  
 [tcp-school](http://www.tcpschool.com/java/java_collectionFramework_concept)  
 [티스토리 - Collection 인터페이스 대표 메서드](https://travelbeeee.tistory.com/474)  
 [티스토리 - 자바의 Queue](https://coding-factory.tistory.com/602)

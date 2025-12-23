@@ -11,8 +11,8 @@
 ##  계층 구조
 
 - [HashSet](Java-HashSet.md) : 대용량 데이터 저장/탐색에 유리
-- [EnumSet](Java-EnumSet.md) 
-- [LinkedHashSet](Java-LinkedHashSet.md)
+- [EnumSet](Java-EnumSet.md) : 열거형 데이터를 다룰때
+- [LinkedHashSet](Java-LinkedHashSet.md) : 순서를 저장함
 - [TreeSet](Java-TreeSet.md) : 범위 탐색과 정렬에 유리
 
 ![Pasted image 20251222164652](../../GALLERY/Pasted%20image%2020251222164652.png)

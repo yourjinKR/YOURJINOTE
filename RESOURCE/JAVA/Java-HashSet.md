@@ -2,9 +2,18 @@
 
 - [Set](Java-Set.md) 인터페이스의 구현체
 - 중복 요소를 허용하지 않음
-- 내부적으로 [Hash Table](../CS/Map.md) 데이터 구조의 구현체인 HashMap을 사용
+- 내부적으로 [Hash Table](../CS/Map.md) 데이터 구조의 구현체인 [[Java-HashMap|HashMap]]을 사용
 - `Serializable` 와 `Cloneable`를 구현함
 - HashSet은 thread-safe 하지 않음
+
+```java
+public class HashSet<E>  
+    extends AbstractSet<E>  
+    implements Set<E>, Cloneable, java.io.Serializable  
+{  
+    private transient HashMap<E,Object> map;
+}
+```
 
 ```java
 Set<String> set = new HashSet<>();  
