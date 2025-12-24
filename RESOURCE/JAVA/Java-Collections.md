@@ -94,7 +94,7 @@ int min = Collections.min(sorted);
 int max = Collections.max(sorted);
 ```
 
-### 요소가 객체일 때
+#### 요소가 객체일 때
 
 컬렉션의 요소 타입이 커스텀 클래스인 경우,  
 `Comparable`을 구현하여 객체 간의 자연 정렬 기준을 정의할 수 있다.

@@ -92,7 +92,7 @@ public class JsonDataProcessor extends DataProcessor {
 }
 ```
 
-```json
+```java
 package org.example.selfmade.designPattern.templateMethod;
 
 import java.util.List;
@@ -128,6 +128,6 @@ public class TemplateMethodPatternEx {
 
 # 출처
 
-https://refactoring.guru/ko/design-patterns/template-method
+https://refactoring.guru/ko/design-patterns/template-method  
 [티스토리 - 템플릿 메소드 패턴에 대해](https://coding-factory.tistory.com/712)
 
