@@ -42,7 +42,7 @@
 [Java-다형성](../JAVA/Java-다형성.md)
 [Java-추상-클래스](../JAVA/Java-추상-클래스-Abstract-Class.md)
 [Java-인터페이스](../JAVA/Java-인터페이스-Interface.md)
-[Java-열거형](../JAVA/Java-열거형-Enum.md)
+[Java-열거형](Java-Enum.md)
 
 ### 다형성의 예시
 대표적인 예시로 메서드 오버라이딩과 메서드 오버로딩이다.

@@ -1,6 +1,6 @@
 # EnumSet
 
-Java에서 [열거형](Java-열거형-Enum.md)과 함께 사용하기 위한 특수한 구현체이다.  
+Java에서 [열거형](Java-Enum.md)과 함께 사용하기 위한 특수한 구현체이다.  
 
 - `AbstractSet` 클래스를 확장하고 [Set](Java-Set.md) 인터페이스를 구현함
 - `HashSet`보다 훨씬 고성능

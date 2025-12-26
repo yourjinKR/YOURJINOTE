@@ -133,3 +133,9 @@ interface SequencedCollection<E> extends Collection<E> {
 [tcp-school](http://www.tcpschool.com/java/java_collectionFramework_concept)  
 [티스토리 - Collection 인터페이스 대표 메서드](https://travelbeeee.tistory.com/474)  
 [티스토리 - 자바의 Queue](https://coding-factory.tistory.com/602)
+
+<br>
+
+# 다시 점검할 부분
+
+[[기술면접-Java-Collection-Framework]]  

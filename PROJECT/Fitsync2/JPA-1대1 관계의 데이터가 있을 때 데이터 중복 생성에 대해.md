@@ -68,3 +68,35 @@ public UserProfileResponse create(UserProfileRequest request) {
 그런 측면에서는 위와 같은 구조는 리팩토링 전후로 얻는 이점은 아니었다.
 
 어떻게 할까..?
+
+### 리팩토링
+
+- 유저 id로 유저가 있는지 확인 -> 이거 대신에 유저의 id로 유저의 프로필이 있는지 확인
+
+```java
+@Override  
+@Transactional  
+public UserProfileResponse create(UserProfileRequest request) {  
+  
+    long userId = request.userId();  
+    boolean profilePresent = userProfileRepository.findByUserId(userId).isPresent();  
+  
+    if (profilePresent)  
+        throw new RestApiException(UserProfileException.DUPLICATE, userId);  
+  
+    User user = userRepository.findById(userId)  
+            .orElseThrow(() -> new RestApiException(UserException.NOT_FOUND));  
+  
+    UserProfile profile = userProfileMapper.toEntity(request, user);  
+  
+    UserProfile save = userProfileRepository.save(profile);  
+    return new UserProfileResponse(save.getId());  
+}
+
+```
+
+- 특정 userId의 프로필이 있는지 확인, 있다면 throw
+- 특정 userId의 유저가 있는지 확인, 없다면 throw
+- 유저 프로필 생성
+
+> userId로 

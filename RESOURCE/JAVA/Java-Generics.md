@@ -85,6 +85,35 @@ Box<Fruit> fruitBox = appleBox1; // 불가능
 
 이와 같은 경우에는 와일드 카드를 활용하여 해결 가능하다.
 
+## 와일드 카드
+
+```java
+Box<? extends Fruit> fruitBox2 = appleBox1;
+```
+
+와일드 카드 '`?`' 를 사용하면 제네릭  간 형변환이 가능하다.
+
+- `<?>` : 제한 없음 (like `Object`)
+- `<? extends 부모타입>` : 상한
+- `<? super 자식타입>` : 하한
+
+와일드 카드는 클래스나 메서드 선언시에는 사용이 불가능하다.
+
+> 와일드카드는 설계가 아닌 사용을 위한 개념이다.
+
+### Map.java의 comparingByKey()
+```java
+public static <K extends Comparable<? super K>, V> Comparator<Map.Entry<K, V>> comparingByKey() {  
+    return (Comparator<Map.Entry<K, V>> & Serializable)  
+        (c1, c2) -> c1.getKey().compareTo(c2.getKey());  
+}
+```
+
+- 이 메서드는 타입 매개변수 K, V를 가지는 제네릭 메서드이다.  
+- K는 Comparable을 구현한 타입만 허용된다. 즉, K 타입 객체는 compareTo() 메서드를 호출할 수 있어야 한다.  
+- Comparable 내부의 K는 K 또는 K의 부모 타입과 비교 가능하다.
+- 반환 타입은 Map.Entry<K,V>를 비교하는 Comparator를 반환한다.
+
 ## 제네릭 메서드
 
 ```java
@@ -166,36 +195,6 @@ Pair<Integer, String> p2 = new Pair<>(2, "pear");
 // 아래 <Integer, String>는 생략해도 된다 (타입 추론)  
 boolean same = Util.<Integer, String>compare(p1, p2);
 ```
-
-
-## 와일드 카드
-
-```java
-Box<? extends Fruit> fruitBox2 = appleBox1;
-```
-
-와일드 카드 '`?`' 를 사용하면 제네릭  간 형변환이 가능하다.
-
-- `<?>` : 제한 없음 (like `Object`)
-- `<? extends 부모타입>` : 상한
-- `<? super 자식타입>` : 하한
-
-와일드 카드는 클래스나 메서드 선언시에는 사용이 불가능하다.
-
-> 와일드카드는 설계가 아닌 사용을 위한 개념이다.
-
-### Map.java의 comparingByKey()
-```java
-public static <K extends Comparable<? super K>, V> Comparator<Map.Entry<K, V>> comparingByKey() {  
-    return (Comparator<Map.Entry<K, V>> & Serializable)  
-        (c1, c2) -> c1.getKey().compareTo(c2.getKey());  
-}
-```
-
-- 이 메서드는 타입 매개변수 K, V를 가지는 제네릭 메서드이다.  
-- K는 Comparable을 구현한 타입만 허용된다. 즉, K 타입 객체는 compareTo() 메서드를 호출할 수 있어야 한다.  
-- Comparable 내부의 K는 K 또는 K의 부모 타입과 비교 가능하다.
-- 반환 타입은 Map.Entry<K,V>를 비교하는 Comparator를 반환한다.
 
 ## 멀티 타입 파라미터 제네릭
 
@@ -310,3 +309,9 @@ Object o = p.get();
 [지마켓 기술 블로그 - 제네릭 심화](https://dev.gmarket.com/28)  
 [남궁성 - 자바의 정석](https://www.youtube.com/watch?v=GsCiLF-o2aI&list=PLW2UjW795-f4dHD3VADsvH7ZkPuFAF7Vo&index=70)  
 [유튜브 - 테코톡](https://www.youtube.com/watch?v=Cr6mlXWZ35E)  
+
+<br>
+
+# 다시 점검할 내용
+
+[기술면접-Java-Generic](기술면접-Java-Generic.md)  
