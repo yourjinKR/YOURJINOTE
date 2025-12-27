@@ -6,6 +6,14 @@ MySQL에서는 **스키마**와 **데이터베이스**가 같은 뜻임
 ![Pasted image 20251111013947](../../../GALLERY/Pasted%20image%2020251111013947.png)
 스키마(데이터베이스)안에 테이블이 있고, 그 테이블 안에 데이터가 있다.
 
+## 유저 생성
+
+```sql
+CREATE USER 'springai'@'%' IDENTIFIED WITH caching_sha2_password BY 'springai';
+GRANT ALL PRIVILEGES ON *.* TO 'springai'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+```
+
 ## 유저를 만들었지만 못찾을때
 스키마(DB)는 존재하지만, 그 스키마에 붙을 애플리케이션 계정이 없어서 `Access denied`가 난 거예요.
 아래 SQL을 Workbench에서 **root로 접속한 세션**에서 그대로 실행해 계정과 권한을 만들어 주세요.
