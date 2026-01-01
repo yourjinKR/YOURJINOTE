@@ -50,10 +50,9 @@ Handshake가 성공적으로 끝나면, 이제 실제 HTTP 데이터를 주고�
 |**공개키 방식**|대칭키를 안전하게 전달할 때 사용|보안성이 매우 높지만 연산이 느림|
 |**대칭키 방식**|실제 데이터를 암호화하여 통신할 때 사용|연산이 빠르지만 키가 유출되면 위험함|
 
-
-
 <br>
 
 # 출처
 
+[Github](https://github.com/gyoogle/tech-interview-for-developer/blob/master/Computer%20Science/Network/HTTP%20%26%20HTTPS.md)  
 [유튜브 - Https 어떻게 동작하는걸까요?](https://www.youtube.com/watch?v=kBlQiwXSx8A)
