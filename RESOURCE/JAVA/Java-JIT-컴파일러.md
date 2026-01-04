@@ -1,4 +1,6 @@
+# JIT 컴파일러
 
+JIT 컴파일러는 런타임시 바이트 코드를 원시 시스템 코드로 컴파일하여 Java 애플리케이션 성능을 향상시키는 런타임 환경의 컴포넌트이다.
 
 ![java-jvm](https://blog.kakaocdn.net/dna/b1w4cW/btrIK7IEXEe/AAAAAAAAAAAAAAAAAAAAABuuH8Dy892Tx8lNatVstFQ0HLtyQ2R-5cXGAYryuFn1/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1764514799&allow_ip=&allow_referer=&signature=M2rBm5Eiwhw%2B88PKY9zlX16zuU0%3D)
 

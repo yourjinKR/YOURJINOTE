@@ -1,6 +1,6 @@
 
 ```
-OPEN_AI_SECRET_KEY=키ㅋ
+OPEN_AI_SECRET_KEY=12312312
 ```
 
 ```
