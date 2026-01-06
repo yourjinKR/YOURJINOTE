@@ -28,7 +28,7 @@ dependencyManagement {
 ```yaml
 ai:  
   openai:  
-    api-key: ${OPEN_AI_SECRET_KEY}
+    api-key: ${OPEN_AI_S ECRET_KEY}
 ```
 
 환경변수 설정 후 실행

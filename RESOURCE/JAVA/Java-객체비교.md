@@ -3,7 +3,7 @@
 - Comparable : 클래스 내 객체들의 자연스러운 순서를 정의하는데 사용하는 인터페이스
 - Comparator : 외부에서 사용자 지정 정렬 로직을 정의하는데 사용
 
-## Comparator
+## Comparable
 
 - 클래스 내 객체들의 자연스러운 순서를 정의하는데 사용하는 인터페이스
 - `compareTo()`를 재정의
