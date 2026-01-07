@@ -73,7 +73,7 @@ List<String> list1 = names.stream()
 
 ## 스트림 생성
 
-해당 Stream을 생성시 여러 소스를 수정하지 않고도 
+> `stream()`은 스트림 파이프 라인을 구성하는 것이고, 실제 연산은 최종 연산 시점에서 실행됩니다.
 
 ### 빈 스트림
 
@@ -102,6 +102,97 @@ Stream<String> stringStream = List.of("dd","aa","cc").stream();
 String[] arr = {"a", "b", "c"};  
 Stream<String> streamOfArrayFull = Arrays.stream(arr);  
 Stream<String> streamOfArrayPart = Arrays.stream(arr, 1, 3);
+```
+
+### 기본형 스트림
+
+```java
+IntStream range = IntStream.range(1, 5); // 1~4  
+IntStream intStream = IntStream.rangeClosed(1, 5);// 1~5
+```
+
+기본형 타입에 대해서는 별도의 `Stream` 타입을 제공하며 성능면에서 효율적이다.
+
+- 내부 요소: **primitive**
+- 박싱하지 않음
+- 연산 성능 증가
+- 메모리 효율 증가
+
+```java
+int sum = IntStream.range(1, 10).sum();
+double avg = IntStream.range(1, 10).average().orElse(0);
+int max = IntStream.range(1, 10).max().orElse(0);
+```
+
+직관적인 코드를 작성 할 수 있다.
+
+#### 기본형 스트림과 비교
+
+기본형 데이터를 Stream으로 다룬다면 다음과 같은 특징을 가진다.
+
+```java
+// 일반적인 스트림 방식
+Stream<Integer>
+```
+
+- 내부 요소: **Wrapping Class**
+    
+- 연산 시:
+    - 오토 박싱 / 언박싱 발생
+    - **힙 메모리 사용**
+    - GC 부담 증가
+
+#### 다시 객체 스트림으로 변환
+
+```java
+Stream<Integer> boxed =
+    IntStream.range(1, 5).boxed();
+```
+
+단, 해당 연산은 다시 객체를 생성하기에 그 만큼의 비용이 발생한다!
+
+### 파일 스트림
+
+```java
+String filePath = "example.txt";  
+String content = "Hello, Java File Stream!";  
+  
+// 1. 파일 출력 (파일에 쓰기)  
+try (FileOutputStream fos = new FileOutputStream(filePath)) {  
+    byte[] bytes = content.getBytes();  
+    fos.write(bytes);  
+    System.out.println("파일 씀");  
+} catch (IOException e) {  
+    e.printStackTrace();  
+}  
+  
+// 2. 파일 입력 (파일에서 읽기)  
+try (FileInputStream fis = new FileInputStream(filePath)) {  
+    int data;  
+    System.out.print("파일 내용 읽기: ");  
+    while ((data = fis.read()) != -1) { // -1은 파일의 끝(EOF)을 의미  
+        System.out.print((char) data); // 읽어온 바이트를 문자로 변환하여 출력  
+    }  
+    System.out.println();  
+} catch (IOException e) {  
+    e.printStackTrace();  
+}
+```
+
+### 무한 스트림
+
+```java
+// 생성  
+Stream<Double> randoms = Stream.generate(Math::random);  
+// 반복  
+Stream<Integer> nums = Stream.iterate(1, n -> n + 1);  
+// 사용  
+Stream.iterate(1, n -> n + 1)  
+        .limit(5)  
+        .forEach(System.out::println);  
+  
+// 반드시 limit 설정  
+randoms.limit(5).forEach(System.out::println);
 ```
 
 ### `builder()`
@@ -148,53 +239,17 @@ Stream<String> streamGenerated = Stream.generate(() -> "element").limit(10);
 | `distinct()`         | 중복 제거  |
 | `limit()` / `skip()` | 개수 제한  |
 | `flatMap()`          | 평탄화    |
-
-### 지연 실행
-
-연산을 즉시 실행하지 않고 최종 연산이 호출될 때까지 연산을 미룬다
-
-```java
-names.stream()
-     .filter(n -> {
-         System.out.println("filter: " + n);
-         return n.length() <= 3;
-     })
-     .map(n -> {
-         System.out.println("map: " + n);
-         return n.toUpperCase();
-     })
-     .forEach(System.out::println);
-```
-
-스트림은 요소 단위로 하나씩 처리되며 다음과 같이 실행된다.
-
-```
-yoo은 세글자 이상인가?
-네
-세글자 이상이니 연산 실행
-YOO
-ha은 세글자 이상인가?
-아니오
-kim은 세글자 이상인가?
-네
-세글자 이상이니 연산 실행
-KIM
-park은 세글자 이상인가?
-네
-세글자 이상이니 연산 실행
-PARK
-ko은 세글자 이상인가?
-아니오
-jo은 세글자 이상인가?
-아니오
-```
-
-불필요한 연산을 최소화한다.
+| `peek()`             | 디버깅 전용 |
 
 #### 단락 연산
 
-`limit()`, `findFirst()`와 같은 경우는 중간 연산이지만 조건 요구시 스트림이 단락된다.  
-즉, 이후의 요소들에 대해서는 연산이 실행되지 않으며 이는 Stream 성능 최적화의 핵심이다.
+```java
+.limit(10) // 앞에서 10개
+.skip(5) // 앞에서 5개 건너뜀
+```
+
+`limit()`, `findFirst()`와 같은 경우는 중간 연산이지만 **조건 요구시 스트림이 단락**된다.  
+즉, 이후의 요소들에 대해서는 연산이 실행되지 않으며 이는 **Stream 성능 최적화의 핵심**이다.
 
 #### `sorted()`
 
@@ -234,6 +289,75 @@ List<Member> list3 = members.stream()
 
 > 각 연산마다 정렬에 대한 기준이 달라질 수 있으므로 `Comparator`를 사용하도록 권장한다.
 
+#### `distinct()` – 중복 제거
+
+```java
+stream.distinct();
+```
+
+- 내부적으로 `Set`
+- `equals` / `hashCode` 기반
+
+### `flatMap()`
+
+```java
+List<Item> items = List.of(  
+        new Item(1),  
+        new Item(2),  
+        new Item(3),  
+        new Item(4),  
+        new Item(5),  
+        new Item(6)  
+);  
+  
+Data data = new Data(1, items);  
+  
+Stream.of(data)  
+        .flatMap(d -> d.getItems().stream())  
+        .forEach(i -> System.out.println(i.getId()));
+```
+
+> **map과 flatMap의 차이**  
+> map은 요소를 1:1로 변환하여 중첩 구조를 유지함  
+> 반면 flatMap은 요소를 여러 개로 펼쳐 하나의 스트림으로 평탄화 한다.  
+> 주로 컬렉션이나 Optional 같은 중첩 구조를 처리할 때 사용한다.
+
+### 지연 실행
+
+연산을 즉시 실행하지 않고 최종 연산이 호출될 때까지 연산을 미룬다
+
+```java
+List<String> names = List.of("yoo", "ha", "kim");
+
+names.stream()
+     .filter(n -> {
+         System.out.println("filter: " + n);
+         return n.length() <= 3;
+     })
+     .map(n -> {
+         System.out.println("map: " + n);
+         return n.toUpperCase();
+     })
+     .forEach(System.out::println);
+```
+
+스트림은 요소 단위로 하나씩 처리되며 다음과 같이 실행된다.
+
+```
+yoo은 세글자 이상인가?
+네
+세글자 이상이니 연산 실행
+YOO
+ha은 세글자 이상인가?
+아니오
+kim은 세글자 이상인가?
+네
+세글자 이상이니 연산 실행
+KIM
+```
+
+불필요한 연산을 최소화한다.
+
 ## 최종 연산
 
 - Stream을 실행 (소비하는 개념에 가까움)
@@ -242,12 +366,92 @@ List<Member> list3 = members.stream()
 
 ### 대표 메서드
 
-|메서드|결과|
-|---|---|
-|`forEach()`|소비|
-|`toList()` / `collect()`|컬렉션|
-|`count()`|long|
-|`findFirst()`|Optional|
-|`anyMatch()`|boolean|
-|`reduce()`|누적 계산|
+| 메서드                      | 결과       |
+| ------------------------ | -------- |
+| `forEach()`              | 소비       |
+| `toList()` / `collect()` | 컬렉션      |
+| `count()`                | long     |
+| `findFirst()`            | Optional |
+| `anyMatch()`             | boolean  |
+| `reduce()`               | 누적 계산    |
 
+#### `forEach()`
+
+```java
+stream.forEach(System.out::println);
+```
+
+출력, 로그, 외부 시스템 호출 등에서 사용함
+
+#### `toList()` / `collect()`
+
+```java
+List<String> result = stream.toList(); // Java 16
+
+List<String> result =
+    stream.collect(Collectors.toList());
+```
+
+```java
+// Map
+Map<String, Integer> map =
+    stream.collect(Collectors.toMap(
+        Member::getName,
+        Member::getAge
+    ));
+```
+
+### `count()`
+
+```java
+long cnt = stream.count();
+```
+
+#### `findFirst()` / `findAny()`
+
+두 메서드는 요소 하나를 가져오는 것이며 각각의 특징을 고려하여 사용
+
+```java
+// 순서 보장
+Optional<T> result = stream.findFirst();
+
+// 병렬 스트림에서 빠름
+Optional<T> result = stream.findAny();
+```
+
+#### `anyMatch()` /  `allMatch()` / `noneMatch()`
+
+조건 검사에 사용함
+
+| 메서드       | 의미      |
+| --------- | ------- |
+| anyMatch  | 하나라도 만족 |
+| allMatch  | 모두 만족   |
+| noneMatch | 모두 불만족  |
+
+```java
+// 해당 그룹에 어른이 있는가
+boolean hasAdult =
+    members.stream().anyMatch(m -> m.getAge() >= 20);
+```
+
+#### `reduce()`
+
+```java
+// nums의 합 구하기
+int result1 = Arrays.stream(nums)  
+        .reduce(0, Integer::sum);  
+  
+int result2 = Arrays.stream(nums)  
+        .sum();  
+```
+
+- 모든 최종 연산의 근본
+- 가독성 측면에서는 좋지 않음
+- **collect가 가능한 경우 reduce 지양**
+<br>
+
+# 출처
+
+[남궁성 - 자바의 정석](https://www.youtube.com/watch?v=AOw4cCVUJC4&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=164)  
+[인프런 - 김영한의 실전 자바](https://www.inflearn.com/course/%EA%B9%80%EC%98%81%ED%95%9C%EC%9D%98-%EC%8B%A4%EC%A0%84-%EC%9E%90%EB%B0%94-%EA%B3%A0%EA%B8%89-3)
