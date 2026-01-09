@@ -111,12 +111,11 @@ IntStream range = IntStream.range(1, 5); // 1~4
 IntStream intStream = IntStream.rangeClosed(1, 5);// 1~5
 ```
 
-기본형 타입에 대해서는 별도의 `Stream` 타입을 제공하며 성능면에서 효율적이다.
-
-- 내부 요소: **primitive**
-- 박싱하지 않음
-- 연산 성능 증가
-- 메모리 효율 증가
+- 기본형 타입에 대해서는 별도의 `Stream` 타입을 제공하며 성능면에서 효율적이다.
+	- 내부 요소: **primitive**
+	- 박싱하지 않음
+	- 연산 성능 증가
+	- 메모리 효율 증가
 
 ```java
 int sum = IntStream.range(1, 10).sum();
@@ -124,7 +123,7 @@ double avg = IntStream.range(1, 10).average().orElse(0);
 int max = IntStream.range(1, 10).max().orElse(0);
 ```
 
-직관적인 코드를 작성 할 수 있다.
+- 직관적인 코드를 작성 할 수 있다.
 
 #### 기본형 스트림과 비교
 
@@ -181,19 +180,29 @@ try (FileInputStream fis = new FileInputStream(filePath)) {
 
 ### 무한 스트림
 
+`limit()`과 같은 단락 연산을 사용하지 않는다면 무한 스트림이기에 인스턴스를 무한대로 생성한다.
+
 ```java
-// 생성  
+// generate  
 Stream<Double> randoms = Stream.generate(Math::random);  
-// 반복  
+// iterator 
 Stream<Integer> nums = Stream.iterate(1, n -> n + 1);  
 // 사용  
 Stream.iterate(1, n -> n + 1)  
-        .limit(5)  
+        .limit(5)
         .forEach(System.out::println);  
   
 // 반드시 limit 설정  
 randoms.limit(5).forEach(System.out::println);
 ```
+
+#### `generate()`
+
+```java
+Stream<String> streamGenerated = Stream.generate(() -> "element").limit(10);
+```
+
+> `element`라는 문자열 10개를 연속으로 생성
 
 ### `builder()`
 
@@ -213,14 +222,6 @@ Stream<String> streamBuilder =
                 .add("c")  
                 .build();
 ```
-
-### `generate()`
-
-```java
-Stream<String> streamGenerated = Stream.generate(() -> "element").limit(10);
-```
-
-> `element`라는 문자열 10개를 연속으로 생성
 
 
 ## 중간 연산
@@ -289,14 +290,14 @@ List<Member> list3 = members.stream()
 
 > 각 연산마다 정렬에 대한 기준이 달라질 수 있으므로 `Comparator`를 사용하도록 권장한다.
 
-#### `distinct()` – 중복 제거
+#### `distinct()`
 
 ```java
 stream.distinct();
 ```
 
 - 내부적으로 `Set`
-- `equals` / `hashCode` 기반
+- `equals` / `hashCode` 기반으로 같은 객체인지 검증한다.
 
 ### `flatMap()`
 
@@ -449,6 +450,12 @@ int result2 = Arrays.stream(nums)
 - 모든 최종 연산의 근본
 - 가독성 측면에서는 좋지 않음
 - **collect가 가능한 경우 reduce 지양**
+
+# Collectors
+
+
+
+
 <br>
 
 # 출처
