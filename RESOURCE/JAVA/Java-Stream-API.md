@@ -451,14 +451,119 @@ int result2 = Arrays.stream(nums)
 - 가독성 측면에서는 좋지 않음
 - **collect가 가능한 경우 reduce 지양**
 
-# Collectors
+### collector()
 
+스트림의 요소들을 **원하는 자료구조나 결과 형태로 수집하는 최종 연산**
 
+#### list와 Set의 간단한 버전
 
+```java
+List<String> list =
+    stream.collect(Collectors.toList());
+    
+Set<String> set =
+    stream.collect(Collectors.toSet());
+        
+```
+
+#### 직접 자료구조 지정
+
+```java
+LinkedList<String> list =
+    stream.collect(Collectors.toCollection(LinkedList::new));
+```
+
+#### toMap()
+
+```java
+List<String> example = List.of("apple", "banana", "kiwi", "lemon");  
+Map<Integer, String> collect = example.stream().collect(Collectors.toMap(  
+        String::length,  // 키
+        Function.identity(),  // 값
+        (oldValue, newValue) -> oldValue, // 키 충돌시 해결 방법,  
+        LinkedHashMap::new // Map 타입 이외에 특정 컬렉션으로 저장  
+));
+```
+
+#### 불변 컬렉션과 toList()
+
+```java
+List<Integer> list = members.stream()  
+        .map(member -> member.age + 1)  
+        .toList();  
+  
+List<Integer> list2 = members.stream()  
+        .map(member -> member.age + 2)  
+        .collect(Collectors.toUnmodifiableList());  
+  
+// UnsupportedOperationException  
+// list.add(100);  
+// list2.add(100);
+```
+
+`toList()`와 `Collectors.toUnmodifiableList()`를 사용하면 불변 컬렉션으로 데이터를 다룰 수 있다.
+
+####  문자열 수집
+
+```java
+List<Person> people = List.of(  
+        new Person("어진1", 26),  
+        new Person("어진2", 27),  
+        new Person("어진3", 28)  
+);  
+  
+String joining3 = people.stream()  
+        .map(Person::name)  
+        .collect(Collectors.joining(", "));
+        
+System.out.println(joining3);
+// 어진1, 어진2, 어진3
+```
+
+#### 통계 컬렉션
+
+```java
+Double average = people.stream()  
+        .collect(Collectors.averagingInt(Person::age));  
+System.out.println(average);
+```
+
+- 평균 : `averagingInt` / `averagingLong` / `averagingDouble`
+- 합계 : `summingInt` / `summingLong` / `summingDouble`
+
+```java
+Optional<Member> oldest =
+    members.stream()
+           .collect(Collectors.maxBy(
+               Comparator.comparingInt(Member::getAge)
+           ));
+```
+
+- 최대 / 최소 : `maxBy` / `minBy`
+
+```java
+// 통계 요약  
+IntSummaryStatistics summaryStatistics = people.stream()  
+        .collect(Collectors.summarizingInt(Person::age));  
+        
+System.out.println(summaryStatistics.getAverage());  
+System.out.println(summaryStatistics.getCount());  
+System.out.println(summaryStatistics.getMax());  
+System.out.println(summaryStatistics.getMin());  
+System.out.println(summaryStatistics.getSum());
+```
+
+`summarizingXXXX()`를 통해 한번의 연산으로 모든 통계 수치를 얻을 수 있다.
+
+#### 다운 스트림
+
+그룹핑된 각 그룹에 대해 또 한 번 collect를 수행하는 구조  
+자세한 내용은 [여기](Java-Down-Stream.md)를 참고
 
 <br>
 
 # 출처
 
 [남궁성 - 자바의 정석](https://www.youtube.com/watch?v=AOw4cCVUJC4&list=PLW2UjW795-f6xWA2_MUhEVgPauhGl3xIp&index=164)  
-[인프런 - 김영한의 실전 자바](https://www.inflearn.com/course/%EA%B9%80%EC%98%81%ED%95%9C%EC%9D%98-%EC%8B%A4%EC%A0%84-%EC%9E%90%EB%B0%94-%EA%B3%A0%EA%B8%89-3)
+[인프런 - 김영한의 실전 자바](https://www.inflearn.com/course/%EA%B9%80%EC%98%81%ED%95%9C%EC%9D%98-%EC%8B%A4%EC%A0%84-%EC%9E%90%EB%B0%94-%EA%B3%A0%EA%B8%89-3)  
+[티스토리 - Collection.toMap 사용법](https://ttl-blog.tistory.com/1232)  
