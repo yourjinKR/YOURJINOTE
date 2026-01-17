@@ -427,7 +427,7 @@ Volatile과 Synchronized는 모두 멀티스레드 환경에서 데이터의 일
 
 ## Dead Lock (교착 상태)
 
-[[RESOURCE/CS/deadlock.md|교착상태]]란 두 개 이상의 스레드가 서로 리소스 해제를 기다리면서 모든 스레드가 영원히 멈춰버리는 현상이다.
+[교착상태](../CS/deadlock.md)란 두 개 이상의 스레드가 서로 리소스 해제를 기다리면서 모든 스레드가 영원히 멈춰버리는 현상이다.
 
 ```java
 // Thread-unsafe  
