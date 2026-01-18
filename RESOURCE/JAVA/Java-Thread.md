@@ -392,9 +392,9 @@ static volatile boolean stop = false;
 ### synchronized
 
 `synchronized` 키워드는 자바에서 임계 영역을 보호하기 위해 사용된다.  
-이는 특정 코드 블록이나 메서드에 대해 하나의 스레드만 접근할 수 있도록 보장한다.
+이는 특정 코드 블록이나 메서드에 대해 **하나의 스레드만 접근할 수 있도록 보장**한다.
 
-`synchronized`는 가시성과 원자성을 모두 보장한다.  
+`synchronized`는 가시성과 [원자성](원자성.md)을 모두 보장한다.  
 
 ```java
 public class SynchronizedEx {  
@@ -409,6 +409,9 @@ public class SynchronizedEx {
     }  
 }
 ```
+
+> `synchronized`는 한 번에 하나의 스레드만 들어오게 만드는 것이다.  
+> 그로 인해 해당 방식은 성능 저하로 이어질 수 있다.
 
 자세한 내용은 [여기](Java-syncronized.md)를 참고
 
