@@ -350,19 +350,26 @@ Thread t = new Thread(() -> {
 ```
 
 
-# 동시성
+# 동시성과 동기화
 
-자바에서 동시성은 여러 스레드가 동시에 실행될 수 있도록 하여 성능과 효율성을 향상시킨다.
+<br>
 
-## 동시성 이슈
+## 동시성
 
+자바에서 동시성은 여러 스레드가 동시에 실행될 수 있도록 하여 성능과 효율성을 향상시킨다.  
 그러나 공유 데이터를 부적절하게 다루면 프로그램 동작에 심각한 문제가 발생할 수 있다.
+
+## 동기화
+
+한 스레드가 진행 중인 작업을 다른 스레드가 간섭하지 못하도록 막는 것을 말한다.
+
 
 ## Race Condition (경쟁 상태)
 
 스레드는 실행되고 있는 CPU 메모리 영역 내 데이터를 캐싱한다.  
 
 그로 인해 아래와 같은 문제가 발생한다.  
+
 - 캐싱된 시점에 따라 다수의 스레드가 특정 변수를 공유하더라도 값이 다를 수 있다.
 - 캐싱된 데이터가 언제 갱신되는지 정확히 알 수 없다.
 
@@ -428,6 +435,31 @@ Volatile과 Synchronized는 모두 멀티스레드 환경에서 데이터의 일
 
 > 과도한 락의 사용은 성능 저하와 [데드락](../CS/deadlock.md)과 같은 문제가 발생한다.
 
+<br>
+
+### 대기 제어
+
+동기화를 통해 공유 데이터를 보호하는 것 뿐만 아니라 특정 스레드가 객체의 락을 오래 갖고 있지 않도록 하는 것 또한 중요하다.
+
+#### wait/notify
+
+> 해당 메서드들은 `Object`에 정의되어 있다.  
+> 동기화 블럭 내에서만 사용 가능하며 보다 효율적인 동기화를 가능하게 만든다.
+
+- **void wait() :** 현재 스레드를 다른 스레드가 이 객체에 대한 `notify()` 또는 `notifyAll()` 메소드를 호출할때까지 대기합니다. 
+- **void wait(long timeout) :** 현재 스레드를 다른 스레드가 이 객체에 대한 `notify()` 또는 `notifyAll()` 메소드를 호출하거나 timeout 시간동안 대기합니다. 
+- **void notify() :** 이 객체에 대해 대기중인 스레드 하나를 깨웁니다. 
+- **void notifyAll() :** 이 객체에 대해 대기중인 모든 스레드를 깨웁니다. 
+
+#### wait/notify 한계점
+
+- 오래 기다린 스레드가 락을 얻는 보장은 없다. (무작위)
+- 조건을 여러 개로 나눌 수 없다.
+
+이 점을 해결하기 위해 [ReentrantLock의 Condition](ReentrantLock.md#Condition)을 활용한다.
+
+<br>
+
 ## Dead Lock (교착 상태)
 
 [교착상태](../CS/deadlock.md)란 두 개 이상의 스레드가 서로 리소스 해제를 기다리면서 모든 스레드가 영원히 멈춰버리는 현상이다.
@@ -474,4 +506,9 @@ fair lock 또는 적절한 스레드 스케줄링 매커니즘을 사용
 
 [flab - volatile와 synchronized](https://f-lab.kr/insight/volatile-and-synchronized-in-java-20250620)  
 [geeksforgeeks - Thread](https://www.geeksforgeeks.org/java/java-threads/)  
-[geeksforgeeks - concurrency problem](https://www.geeksforgeeks.org/java/concurrency-problems-in-java/)
+[geeksforgeeks - concurrency problem](https://www.geeksforgeeks.org/java/concurrency-problems-in-java/)  
+[티스토리 - 스레드 동기화 wait()와 notify(), notifyAll() 사용하기](https://kadosholy.tistory.com/124)  
+
+
+ 
+

@@ -78,7 +78,6 @@ public class Counter {
 	    }
 	}
 }
-
 ```
 
 - 원하는 객체에 LOCK (현재 코드는 `this`)
@@ -103,7 +102,7 @@ synchronized (lock) {
 - 조건별 대기 불가능
 - 락 상태를 확인 할 수 없다.
 
-이를 해결하기 위해 ReentrantLock를 사용한다.
+이를 해결하기 위해 [ReentrantLock](ReentrantLock.md)를 사용한다.
 
 
 <br>
