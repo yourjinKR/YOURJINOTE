@@ -1,4 +1,4 @@
-![[Java-Thread 2026-01-20 23.29.21.excalidraw]]# 자바의 Thread
+# 자바의 Thread
 
 Java에서 스레드는 **멀티 스레드**를 지원하여 하나의 프로세스 안에 한 개 이상의 스레드를 지원하는 구조이다. 이러한 멀티 스레드를 통해 **비동기식 및 병렬 애플리케이션**을 개발할 수 있다. 
 
@@ -6,7 +6,9 @@ Java에서 스레드는 **멀티 스레드**를 지원하여 하나의 프로세
 
 스레드를 구현하는 방법은 `Thread` 클래스를 상속 받거나 `Runnable` 인터페이스를 구현하는 방식으로 나뉜다. 객체지향 프로그래밍 측면에서 보통 `Runnable`로 구현하는 것을 권장한다.
 
-## Thread
+## 스레드 선언
+
+### Thread
 
 ```java
 public class MyThread extends Thread {  
@@ -24,7 +26,7 @@ Thread thread = new MyThread();
 thread.start();
 ```
 
-## Runnable
+### Runnable
 
 ```java
 public class MyRunnable implements Runnable {  
@@ -349,6 +351,7 @@ Thread t = new Thread(() -> {
 });
 ```
 
+<br>
 
 # 동시성과 동기화
 
@@ -500,7 +503,16 @@ public static void main(String[] args) throws InterruptedException {
 ### 해결방안
 
 fair lock 또는 적절한 스레드 스케줄링 매커니즘을 사용
+
 <br>
+
+# Concurrent Collection
+
+`Concurrent` 컬렉션은  `java.util.concurrent` 패키지에서 제공하는 thread-safe 컬렉션 구현체로, 내부적으로 세분화된 락 또는 락-프리 기법을 사용하여 높은 동시성과 성능을 제공한다.
+
+```java
+
+```
 
 # 출처
 
