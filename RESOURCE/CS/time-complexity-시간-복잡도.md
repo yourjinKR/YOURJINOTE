@@ -8,6 +8,7 @@
 
 
 ## 영상 요약본
+
 [유튜브 - 쉬운코드](https://www.youtube.com/watch?v=tTFoClBZutw)  
 
 ### 1. 시간복잡도(Time Complexity)의 개념
@@ -151,4 +152,5 @@ $$O(1) < O(\log N) < O(N) < O(N \log N) < O(N^2) < O(2^N) < O(N!)$$
 요약하자면, 시간복잡도는 알고리즘의 효율성을 평가하는 척도이며, 주로 최악의 경우를 가정한 Big-O($O$) 표기법을 사용하여 $N$의 증가에 따른 성능 저하를 예측합니다.
 
 # 출처
+
 [유튜브 - 쉬운코드](https://www.youtube.com/watch?v=tTFoClBZutw)  
