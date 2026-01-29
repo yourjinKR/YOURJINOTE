@@ -2,7 +2,20 @@
 
 날짜와 시간을 동시에 관리하는 클래스이다.
 
+## 프론트에서 어떻게 전달할까?
 
+Spring(Jackson)이 **ISO-8601** 형식을 기본 지원하기에 아래와 같은 문자열로 자동 파싱된다.
+
+```json
+{
+  "createdAt": "2026-01-29T12:34:56"
+}
+```
+
+```java
+record ExampleDTO(LocalDateTime createdAt) {
+}
+```
 
 # 활용법
 ## 나이 계산
