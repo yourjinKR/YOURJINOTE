@@ -11,7 +11,7 @@
 	- [x] #todo #fitsync 프론트 프로젝트 환경 구성 ✅ 2026-01-29
 	- [x] #todo #fitsync 1차 테스트 ✅ 2026-01-29
 	- [ ] #todo #fitsync 프론트 코드 리팩토링
-	- [ ] #todo #fitsync ⏫ 백엔드 코드 리팩토링
+	- [x] #todo #fitsync ⏫ 백엔드 코드 리팩토링 ✅ 2026-01-30
 	- [x] #todo #fitsync 소셜 로그인 타입 추가 (구글, 카카오) ✅ 2026-01-29
 	- [ ] #todo #fitsync 2차 테스트
 	- [ ] #todo #fitsync CORS 이슈 해결 

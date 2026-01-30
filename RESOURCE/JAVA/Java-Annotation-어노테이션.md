@@ -136,4 +136,4 @@ static class ToDo2026 {}
 
 # 다시 점검할 부분
 
-[기술면접-Java-Annotation](../../AREA/취업/기술면접/기술면접-Java-Annotation.md)
+[자바 어노테이션에 대해 설명해주세요](자바%20어노테이션에%20대해%20설명해주세요.md)
