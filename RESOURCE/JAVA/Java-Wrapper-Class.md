@@ -48,8 +48,8 @@ Java 1.5 이상 부터 **오토 언박싱**으로 별도의 수동적 처리 없
 ## AutoBoxing과 AutoUnBoxing
 
 ```java
-Integer num1 = 123; // 자동 박싱
-int num2 = num1; //자동 언박싱
+Integer num1 = 123; // 오토 박싱
+int num2 = num1; // 오토 언박싱
 ```
 
 Java 1.5 이상 버전에서 지원되는 기능이다.  
