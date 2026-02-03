@@ -1,8 +1,7 @@
 
 # 컬렉션 프레임워크
 
-다수의 데이터를 쉽고 효과적으로 처리할 수 있는 표준화된 방법을 제공하는 클래스의 집합을 의미한다.  
-[자료 구조](../CS/Data-Structure-자료-구조.md)와 알고리즘을 구조화하여 클래스로 구현해 놓은 것이다.
+[자바](JAVA.md)에서 다수의 **데이터를 쉽고 효과적으로 처리할 수 있는 표준화된 방법을 제공**하는 클래스의 집합을 의미한다. [자료 구조](../CS/Data-Structure-자료-구조.md)와 알고리즘을 구조화하여 클래스로 구현해 놓은 것이다.
 
 - 컬렉션 : 여러 객체(데이터)를 모아 놓은 것
 - 프레임워크 : 표준화된 체계적인 프로그래밍 방식
@@ -26,6 +25,8 @@ public interface Collection<E> extends Iterable<E> {}
 - [List](Java-List.md) : 순서가 있는 데이터의 집합이며 중복을 허용한다.
 - [Set](Java-Set.md) : 순서를 유지하기 않는 데이터의 집합, 데이터의 중복을 허용하지 않는다.
 - [Map](Java-Map.md) : 키와 값의 쌍으로 이루어진 데이터의 집합이다.
+
+각각의 인터페이스의 [차이점](../../AREA/취업/기술면접/자바의%20List%20Set%20Map의%20차이를%20설명해주세요.md)은 **순서 유지와 중복 허용 여부**에 따라 구분된다. 
 
 ![Pasted image 20251216133834](../../GALLERY/Pasted%20image%2020251216133834.png)
 
@@ -138,4 +139,4 @@ interface SequencedCollection<E> extends Collection<E> {
 
 # 다시 점검할 부분
 
-[[기술면접-Java-Collection-Framework]]  
+[기술면접-Java-Collection-Framework](../../AREA/취업/기술면접/기술면접-Java-Collection-Framework.md)  

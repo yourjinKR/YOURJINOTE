@@ -1,6 +1,6 @@
 # JVM (Java Virtual Machine)
 
-JRE의 핵심 구성 요소로, 자바 애플리케이션을 실행하는 [가상 머신](../CS/가상-머신-Virtual-Machine.md)
+JRE의 핵심 구성 요소로, [자바](JAVA.md) 애플리케이션을 실행하는 [가상 머신](../CS/가상-머신-Virtual-Machine.md)
 
 - JVM이 **Byte Code**를 **기계어(Binary Code)** 로 변환한다.
 - 자바 바이트코드와 하드웨어 사이에서 인터프리터 역할을 수행
@@ -15,7 +15,7 @@ JRE의 핵심 구성 요소로, 자바 애플리케이션을 실행하는 [가�
 
 ## 프로그램 실행 과정
 
-![[Pasted image 20251214221502.png]]
+![Pasted image 20251214221502](../../GALLERY/Pasted%20image%2020251214221502.png)
 
 1. 자바 **소스 코드**(.java 파일)를 작성  
 2. **JDK**의 **컴파일러**가 자바 소스 파일을 **바이트코드**(.class 파일)로 변환  

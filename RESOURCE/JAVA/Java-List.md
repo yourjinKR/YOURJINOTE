@@ -25,84 +25,25 @@ List<Type> list = new ArrayList<Type>();
 
 ![Pasted image 20251218131710](../../GALLERY/Pasted%20image%2020251218131710.png)
 
-- ArrayList
-- LinkedList
+- [ArrayList](Java-ArrayList.md)
+- [LinkedList](Java-LinkedList.md)
 - Vector
 - Stack
 
-## ArrayList
 
-- 내부적으로 `elementData` 라는 `Object` **배열**에 값을 관리
-- 구조가 간단하며 임의의 요소에 접근하는 시간이 짧다 (인덱스)
-- 비순차적 요소 삽입/삭제 성능이 좋지 않음 (배열의 크기를 조정하기 때문에)
-
-```java
-public class ArrayList<E> extends AbstractList<E>  
-        implements List<E>, RandomAccess, Cloneable, java.io.Serializable  
-{
-	transient Object[] elementData;
-}
-```
-
-## LinkedList
-
-- 이중 연결 리스트를 사용하여 구현, 각 요소(`Node`)가 이전 요소와 다음 요소의 참조를 가짐
-- 요소 추가/삭제 성능에 유리 (배열의 크기를 조정할 필요가 없기에)
-- 임의의 요소 접근시 오래 걸린다 (각 요소를 순차적으로 탐색)
-
-```java
-public class LinkedList<E>  
-    extends AbstractSequentialList<E>  
-    implements List<E>, Deque<E>, Cloneable, java.io.Serializable  
-{
-
-    /**
-     * Pointer to first node.
-     */
-    transient Node<E> first;
-
-    /**
-     * Pointer to last node.
-     */
-    transient Node<E> last;
-
-	private static class Node<E> {  
-	    E item;  
-	    Node<E> next;  
-	    Node<E> prev;  // 이중 연결 리스트, 이전 노드에 대한 참조 또한 존재 
-	  
-	    Node(Node<E> prev, E element, Node<E> next) {  
-	        this.item = element;  
-	        this.next = next;  
-	        this.prev = prev;  
-	    }  
-	}
-}
-```
-
-> **이중 연결 리스트란?**  
-> 링크드 리스트는 이동방향이 단방향이기에 다음 요소에 대한 접근은 쉽지만, 이전 요소에 대한 접근은 어웠다.  
-> 이를 해결하기 위해 이전 요소에 대한 참조를 추가하여 양방향 이동을 지원하는 리스트 형식이다.
-
-### Linked List 종류
-
-- Circular linked list : 꼬리와 헤드가 연결된 리스트
-- Doubly linked list : 노드 간 양방향으로 연결된 리스트
-- Circular doubly linked list : Circular linked list + Doubly linked list
 
 ## ArrayList vs LinkedList 비교
 
 | 연산                                  | ArrayList                           | LinkedList                     |
 | ----------------------------------- | ----------------------------------- | ------------------------------ |
 | 구현                                  | 배열 사용                               | 노드를 연결                         |
-| 데이터 접근  시간                          | 모든 뎅이터 상수 시간 접근                     | 위치에 따라 이동 시간 발생                |
+| 데이터 접근  시간                          | 모든 데이터 상수 시간 접근                     | 위치에 따라 이동 시간 발생                |
 | 삽입/삭제 시간                            | 삽입/삭제 시 데이터 시프트가 필요한 경우 추가 시간 발생    | 삽입/삭제 위치에 따라 그 위치까지 이동하는 시간 발생 |
 | 리스트 크기 확장                           | 배열 확장이 필요할 경우 새로운 배열에 복사하는 추가 시간 발생 | -                              |
 | 검색                                  | 최악의 경우 리스트에 있는 아이템 수 만큼 확인          | 최악의 경우 리스트에 있는 아이템 수 만큼 확인     |
 | [CPU chache](../CS/CPU%20chache.md) | CPU cache 이점 활용                     | -                              |
 
 > `ArrayList`는 내부적으로 연속적인 배열 구조를 사용하기 때문에 공간 지역성(spatial locality)이 적용되어 CPU 캐시 히트율이 높아지며, 순차 접근 시 매우 빠른 성능을 보인다.
-
 
 **ArrayList**
 - 배열 사용

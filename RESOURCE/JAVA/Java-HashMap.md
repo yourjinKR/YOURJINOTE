@@ -1,12 +1,14 @@
 # HashMap
 
 - `AbstractMap`을 상속하고 [Map 인터페이스](Java-Map.md)를 구현함
-- 내부적으로 해싱을 사용하기에 상수 시간의 키 기반 검색, 삽입, 제거가 가능
+- 내부적으로 [해싱](../CS/Hash-Function-해시-함수.md)을 사용하기에 상수 시간의 키 기반 검색, 삽입, 제거가 가능
 - 동기화시 `Collections.synchronizedMap()`을 사용
 - 삽입 순서가 유지되지 않음
 
 ```java
-public class HashMap<K,V> extends AbstractMap<K,V>  implements Map<K,V>, Cloneable, Serializable {}
+public class HashMap<K,V> 
+	extends AbstractMap<K,V>  
+	implements Map<K,V>, Cloneable, Serializable {}
 ```
 
 ```java
