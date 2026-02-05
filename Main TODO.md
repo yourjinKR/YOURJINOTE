@@ -14,7 +14,7 @@
 	- [x] #todo #fitsync ⏫ 백엔드 코드 리팩토링 ✅ 2026-01-30
 	- [x] #todo #fitsync 소셜 로그인 타입 추가 (구글, 카카오) ✅ 2026-01-29
 	- [ ] #todo #fitsync 2차 테스트
-	- [ ] #todo #fitsync CORS 이슈 해결 
+	- [x] #todo #fitsync CORS 이슈 해결 ✅ 2026-02-04
 - [ ] #todo #fitsync 간단한 요청 로그 통계 API
 - [ ] #todo #fitsync AWS 배포
 - [ ] #todo #fitsync 이미지 업로드
@@ -26,7 +26,7 @@
 	- [x] 뮤텍스
 	- [x] 세마포어
 	- [x] 임계 영역
-- [ ] #todo SOLID 원칙 공부 및 정리
+- [x] #todo SOLID 원칙 공부 및 정리 ✅ 2026-02-04
 - [x] #todo 임계 영역 ✅ 2026-01-26
 - [x] #todo Lock에 대해 ✅ 2026-01-26
 	- [x] #todo Fine-grained Lock ✅ 2026-01-26

@@ -13,6 +13,10 @@
 
 ![추상클래스와 인터페이스 그림](../../Excalidraw/추상클래스와%20인터페이스%20그림.md)
 
+# 꼬리 질문
+
+- [[자바에서 다중 상속을 지원하지 않는 이유]]
+
 # 출처
 
 [geeksforgeeks - difference-between-abstract-class-and-interface-in-java](https://www.geeksforgeeks.org/java/difference-between-abstract-class-and-interface-in-java/)  
