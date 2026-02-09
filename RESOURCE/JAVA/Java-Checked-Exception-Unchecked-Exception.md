@@ -1,7 +1,7 @@
 # 개요
 
-- 검사 예외 : 컴파일 시점에 검사되므로 프로그래머가 명시적으로 처리
-- 비검사 예외 : 런타임에 검사되므로 컴파일 시점에 명시적으로 처리
+- Checked Exception (검사 예외) : 컴파일 시점에 검사되므로 프로그래머가 명시적으로 처리
+- UnChecked Exception (비검사 예외) : 런타임에 검사되므로 컴파일 시점에 명시적으로 처리
 
 ![Pasted image 20251213120452](../../GALLERY/Pasted%20image%2020251213120452.png)
 
@@ -9,7 +9,7 @@
 
 > `Exception`을 상속하면서 `RuntimeException`을 상속하지 않으면 **검사 예외**
 
-- 컴파일 시점에 반드시 처리해야 하는 예외
+- **컴파일 시점에 반드시 처리해야 하는 예외**
 - `try-catch`로 직접 처리하거나 `throws`로 호출한 쪽이 위임하지 않으면 컴파일 에러 발생
 - 예외 발생 가능성이 예측 가능하고 외부 요인에 의해 발생하는 경우가 많음
 
@@ -55,6 +55,7 @@ System.out.println(s.length()); // NullPointerException
 
 
 # 출처
+
 [geeksforgeeks](https://www.geeksforgeeks.org/java/java-checked-vs-unchecked-exceptions/)  
 [baeldung](https://www.baeldung.com/java-checked-unchecked-exceptions)
 

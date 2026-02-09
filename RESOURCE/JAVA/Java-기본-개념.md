@@ -11,7 +11,7 @@
 	- Abstract Class
 	- Interface
 	- Inner Class
-- [Exception](Java-예외처리-Exception-Handling.md)
+- [Exception](Java-Exception-Handling-예외-처리.md)
 - [Collection Framework](Java-Collection-Framework.md)
 - [Generic](Java-Generics.md)
 - [Enum](Java-Enum.md)

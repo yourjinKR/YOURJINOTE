@@ -26,7 +26,7 @@
 - 검사 예외
 - 미확인 예외
 
-검사 예외와 미확인 예외에 대한 자세한 정보는 [여기](Java-검사-예외와-비검사-예외.md)를 참조
+검사 예외와 미확인 예외에 대한 자세한 정보는 [여기](Java-Checked-Exception-Unchecked-Exception.md)를 참조
 
 ### 사용자 정의 예외 (User-Defined Exception)
 
