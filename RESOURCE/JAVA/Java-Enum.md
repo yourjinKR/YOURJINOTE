@@ -135,4 +135,4 @@ System.out.println(notFound.getCode()); // 400
 
 # 다시 점검할 부분
 
-[기술면접-Java-Enum](../../AREA/취업/기술면접/기술면접-Java-Enum.md)
+[기술면접-Java-Enum](기술면접-Java-Enum.md)

@@ -56,4 +56,6 @@ public static void main(String args[]) throws IOException {
 더 자세한 비교 예시 코드는 아래 블로그를 참고
 
 # 출처
-[티스토리 - 망나니 개발자](https://mangkyu.tistory.com/217)
+
+[티스토리 - 망나니 개발자](https://mangkyu.tistory.com/217)  
+[gemini](https://gemini.google.com/share/cd8f8145e910)  

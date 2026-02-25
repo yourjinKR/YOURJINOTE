@@ -72,9 +72,10 @@ Mark And Sweep Algorithm처럼 참조되는 객체들에 대해서 마크하고,
 ![Pasted image 20251204203236](../../GALLERY/Pasted%20image%2020251204203236.png)
 ### 한계점
 
-**모든 객체를 새 위치에 복사**하고 해당 객체에 대한 모든 참조를 업데이트해야 하므로 **일시 중지 시간이 증가**하고 **OverHead가 발생**할 수 있다. 즉, STW 시간이 길어질 수 있다.
+**모든 객체를 새 위치에 복사**하고 해당 객체에 대한 모든 참조를 업데이트해야 하므로 **일시 중지 시간이 증가**하고 **OverHead가 발생**할 수 있다. 즉, [STW](STW-Stop-The-World.md) 시간이 길어질 수 있다.
 
 ## Mark And Copy Algorithm
+
 메모리 파편화를 해결하기 위해 제시된 알고리즘이다.  
 현재 GC가 사용하는 알고리즘은 해당 알고리즘을 발전시킨 형태이다.
 
@@ -103,7 +104,8 @@ Mark And Copy Algorithm은 많은 Overhead를 발생시킨다.
 
 ![Pasted image 20251204211536](../../GALLERY/Pasted%20image%2020251204211536.png)
 
-객체는 Young Gen에 할당되고 GC가 수행될 때마다 살아남은 객체에 Age를 기록한다.<br>Age가 특정 임계값을 넘어서면 Old Gen으로 Copy하는 작업을 수행한다. (Promotion)
+객체는 Young Gen에 할당되고 GC가 수행될 때마다 살아남은 객체에 Age를 기록한다.  
+Age가 특정 임계값을 넘어서면 Old Gen으로 Copy하는 작업을 수행한다. (Promotion)
 
 Old Gen으로 복사할 때 압축 Compaction(압축) 작업이 이루어지며 Old Gen이 가득 차서 Full GC를 발생하게 된다면 [STW](STW-Stop-The-World.md)가 발생한다.
 
@@ -180,6 +182,6 @@ Region 단위로 메모리를 관리하여 Compaction 단계를 진행하고 메
 그래서 지금까지 Young -> Old로 이동하는 단계가 아닌 GC 방식이라 이해하면 된다.
 
 # 출처
-[인프런 강의](https://www.inflearn.com/course/%EB%8F%85%ED%95%98%EA%B2%8C-%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94-java-part2/dashboard)
 
+[인프런 강의](https://www.inflearn.com/course/%EB%8F%85%ED%95%98%EA%B2%8C-%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94-java-part2/dashboard)  
 [유튜브-[개발면접3분] Garbage Collection: Mark and Sweep](https://www.youtube.com/watch?v=X2Hcos6iSYw)

@@ -26,7 +26,7 @@ public interface Collection<E> extends Iterable<E> {}
 - [Set](Java-Set.md) : 순서를 유지하기 않는 데이터의 집합, 데이터의 중복을 허용하지 않는다.
 - [Map](Java-Map.md) : 키와 값의 쌍으로 이루어진 데이터의 집합이다.
 
-각각의 인터페이스의 [차이점](../../AREA/취업/기술면접/자바의%20List%20Set%20Map의%20차이를%20설명해주세요.md)은 **순서 유지와 중복 허용 여부**에 따라 구분된다. 
+각각의 인터페이스의 [차이점](자바의%20List%20Set%20Map의%20차이를%20설명해주세요.md)은 **순서 유지와 중복 허용 여부**에 따라 구분된다. 
 
 ![Pasted image 20251216133834](../../GALLERY/Pasted%20image%2020251216133834.png)
 
@@ -139,4 +139,4 @@ interface SequencedCollection<E> extends Collection<E> {
 
 # 다시 점검할 부분
 
-[기술면접-Java-Collection-Framework](../../AREA/취업/기술면접/기술면접-Java-Collection-Framework.md)  
+[기술면접-Java-Collection-Framework](기술면접-Java-Collection-Framework.md)  
