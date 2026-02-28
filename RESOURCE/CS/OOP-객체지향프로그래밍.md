@@ -27,7 +27,7 @@
 객체지향은 크게 4가지 특징을 지닌다
 
 - [캡슐화](Encapsulation-캡슐화.md)
-- [상속](../../Inheritance-상속.md)
+- [상속](Inheritance-상속.md)
 - [다형성](Polymorphism-다형성.md)
 - [추상화](Abstraction-추상화.md)
 
