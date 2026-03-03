@@ -132,3 +132,6 @@ public @interface SpringBootApplication { }
 
 이러한 컴포넌트들은 `@ComponentScan`에 의해 스캔된다.
 
+# 출처
+
+[spring docs](https://docs.spring.io/spring-framework/reference/core/beans.html)  
