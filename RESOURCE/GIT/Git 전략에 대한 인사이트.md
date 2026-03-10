@@ -1,0 +1,1 @@
+[효율적인 Git 브랜치 전략 선택하기: Git Flow, GitHub Flow, GitLab Flow 비교](https://f-lab.kr/insight/effective-git-branch-strategy?gad_source=1&gad_campaignid=22368870602&gbraid=0AAAAACGgUFf_rF-404B4_UDFD28nBsXkG&gclid=CjwKCAjwgb_CBhBMEiwA0p3oOMjdkoXt1Dmzm0g3qVHmkUI3qH1IMcbkjejHxQvtJJMj4xAV98QRExoCfUUQAvD_BwE)

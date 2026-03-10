@@ -50,3 +50,54 @@ mysql -u root -p
 ```sh
 docker exec -it project-mysql-local mysql -u root -p
 ```
+
+
+# Docker Compose
+
+#### `docker-compose.yml`
+
+루트 경로에 추가
+
+```yml
+services:  
+  db:  
+    image: mysql:8.0  
+#    container_name: project-mysql-local  <-- 이름 충돌 방지 (backend-db-1 와 같이 작명)
+    restart: always  
+    ports:  
+      - "3312:3306"  
+    environment:  
+      MYSQL_ROOT_PASSWORD: "1234"  
+      MYSQL_DATABASE: "project_main_dev"  
+      MYSQL_USER: "appuser"  
+      MYSQL_PASSWORD: "appuser"  
+    volumes:  
+      - ./mysql_data:/var/lib/mysql # 컨테이너 삭제해도 데이터 유지  
+      - ./init:/docker-entrypoint-initdb.d # 초기 SQL 자동 실행
+```
+
+#### `build.gradle`
+
+```groovy
+developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+```
+
+#### `application.yml` 
+
+```yaml
+spring:
+  docker:
+    compose:
+      enabled: true
+      file: docker-compose.yml
+      # 애플리케이션 종료 시 컨테이너를 어떻게 할지 결정 (stop, down, none)
+      lifecycle-management: start-and-stop
+```
+
+#### `.gitignore`
+
+```
+mysql_data/
+```
+
+컨테이너 재실행시 로그가 남기에 이를 명시
